@@ -1,0 +1,72 @@
+// -------------------- Breakpoints -------------------------------------
+@mixin mobileOnly {
+    @media (max-width: 649px) {
+      @content;
+    }
+  }
+  
+  @mixin tabletPortrait {
+    @media (max-width: 820px) {
+      @content;
+    }
+  }
+  
+  @mixin tabletPortraitUpToDesktop {
+    @media (min-width: 821px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+  
+  @mixin tabletDown {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  
+  @mixin tabletOnly {
+    @media (min-width: 650px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+  
+  @mixin tabletUp {
+    @media (min-width: 650px) {
+      @content;
+    }
+  }
+  
+  @mixin desktopOnly {
+    @media (min-width: 1025px) and (max-width: 1399px) {
+      @content;
+    }
+  }
+  
+  @mixin desktopUp {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+  
+  @mixin xlarge {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+  
+  // ----------------------- Layout ----------------------------
+  @mixin globalPadding {
+    padding-left: calc(8px + 1.5625vw);
+    padding-right: calc(8px + 1.5625vw);
+    // padding-left: 20%;
+    // padding-right: 20%;
+  
+    // @include tabletOnly {
+    //   padding-left: 10%;
+    //   padding-right: 10%;
+    // }
+  
+    // @include mobileOnly {
+    //   padding-left: 1.5rem;
+    //   padding-right: 1.5rem;
+    // }
+  }

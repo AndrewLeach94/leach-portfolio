@@ -1,0 +1,53 @@
+ @import "./mixins.scss";
+
+:root {
+	--color-black: #0f0f0f;
+	--color-white: #f0f0f0;
+	--color-surface_base: #F3F3F3;
+	--global-box-shadow: 1px 1px 30px 1px #0000005e;
+}
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+body {
+	background-color: var(--color-surface_base);
+	font-family: 'Atkinson', sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+	color: rgb(var(--black));
+}
+main {
+	@include globalPadding;
+}
+h1 {
+	font-size: 5.6rem;
+	line-height: 1.2;
+}
+h2 {
+	font-size: 3.2rem;
+	line-height: 1.2;
+}
+p {
+	margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--color-black);
+	margin: 0;
+}
