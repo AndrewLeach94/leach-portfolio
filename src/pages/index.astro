@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import CaseStudy from '../components/case-study-thumbnail/CaseStudy';
 import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
@@ -29,6 +30,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			</section>
 			<section>
 				<h2>A Small Selection of my Work</h2>
+				<div class="case-study-container">
+					<CaseStudy 
+					title="NOLA Transit UI Overhaul"
+					assetSrc="src/assets/images/case-studies/nola-transit/nola-transit.webm"
+					/>
+				</div>
 			</section>
 		</main>
 	</body>
@@ -64,17 +71,31 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	.bio-section {
 		display: flex;
 		place-content: center;
+		padding: 2rem 0;
+		border-top: solid 1px #var(--color-black);
+		border-bottom: solid 1px #var(--color-black);
 		& .copy-container {
 			display: flex;
+			align-items: center;
 			justify-content: space-evenly;
+			gap: 2rem;
 			width: 60%;
 		}
 		& .heading {
 			font-size: 1.7rem;
 			width: 100%;
+			height: fit-content;
 		}
 		& .copy {
 			font-size: 1.3rem;
+			opacity: 0.75;
+			width: 100%;
+			height: fit-content;
 		}
 	}
+	.case-study-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
 </style>

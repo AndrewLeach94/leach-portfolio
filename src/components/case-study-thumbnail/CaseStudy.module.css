@@ -1,0 +1,13 @@
+.case-study-thumbnail {
+    position: relative;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.thumbnail-title {
+    position: absolute;
+    inset: 0;
+}
