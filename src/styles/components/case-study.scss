@@ -1,0 +1,32 @@
+.case-study-thumbnail {
+    position: relative;
+    transition: all 0.4s;
+    border-radius: 16px;
+    &:hover {
+        .title {
+            opacity: 1;
+            transition: all 0.4s;
+        }
+        video {
+            filter: brightness(0.4);
+            transition: all 0.4s;
+        }
+    }
+    .title {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        color: var(--color-white);
+        margin: auto;
+        text-align: center;
+        height: fit-content;
+        transition: all 0.4s;
+        z-index: var(--z-index-case-study-thumbnail);
+        font-size: 1.3rem;
+    }
+    video {
+        width: 100%;
+        height: auto;
+        transition: all 0.4s;
+    }    
+}

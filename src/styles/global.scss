@@ -1,4 +1,5 @@
  @import "./mixins.scss";
+ @import "./components/case-study.scss";
 
 :root {
 	--color-black: #0f0f0f;
@@ -6,7 +7,11 @@
 	--color-grey-lightest: #d3d3d3;
 	--color-surface_base: #F3F3F3;
 	--global-box-shadow: 1px 1px 30px 1px #0000005e;
+
+	// z-indexes
+	--z-index-case-study-thumbnail: 10;
 }
+
 @font-face {
 	font-family: 'Atkinson';
 	src: url('/fonts/atkinson-regular.woff') format('woff');
@@ -28,6 +33,7 @@ body {
 	padding: 0;
 	line-height: 1.5;
 	color: rgb(var(--black));
+	cursor: url('../assets/icons/filled-circle.png'), auto;
 }
 main {
 	@include globalPadding;
