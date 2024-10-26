@@ -28,5 +28,11 @@
         width: 100%;
         height: auto;
         transition: all 0.4s;
-    }    
+    }
+    button {
+        z-index: 1000;
+        background: none;
+        border: none;
+        cursor: none;
+    }
 }
