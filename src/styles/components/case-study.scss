@@ -1,21 +1,45 @@
 .case-study-thumbnail {
     position: relative;
     transition: all 0.4s;
-    border-radius: 16px;
     &:hover {
         .title {
             opacity: 1;
             transition: all 0.4s;
         }
-        video {
-            filter: brightness(0.4);
+        .expand-icon {
+            opacity: 1;
             transition: all 0.4s;
         }
     }
+    .expand-icon {
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        opacity: 0;
+        top: 0.75rem;
+        right: 0.75rem;
+        z-index: 1000;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        padding-bottom: 0.2rem;
+    }
     .title {
+        background: var(--color-black);
+        border-radius: 4px;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
         position: absolute;
         inset: 0;
         opacity: 0;
+        padding: 0.75rem;
         color: var(--color-white);
         margin: auto;
         text-align: center;
@@ -24,15 +48,75 @@
         z-index: var(--z-index-case-study-thumbnail);
         font-size: 1.3rem;
     }
-    video {
-        width: 100%;
-        height: auto;
-        transition: all 0.4s;
-    }
-    button {
+    .thumbnail-container {
         z-index: 1000;
         background: none;
         border: none;
         cursor: none;
+        transition: all 0.4s;
+        border-radius: 16px;
+        padding: 0;
+        video {
+            width: 100%;
+            height: auto;
+            transition: all 0.4s;
+            border-radius: 16px;
+        }
+
+        &:hover {
+            transition: all 0.4s;
+            transform: scale(1.05);
+            video {
+                filter: grayscale(100%);
+                transition: all 0.4s;
+                box-shadow: var(--global-box-shadow);
+            }    
+        }
+    }
+
+    .close-button {
+        font-size: 1.3rem;
+        font-weight: 800;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    dialog {
+        position: relative;
+        padding: 0;
+        .close-button {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            align-self: flex-end;
+            width: 2rem;
+            height: 2rem;
+            background: var(--color-white);
+            border: solid 2px var(--color-black);
+            border-radius: 16px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+        .copy-container {
+            padding: 1.5rem;
+        }
+    }
+
+    dialog[open] {
+        animation: animateIn 0.5s ease-out normal;
+    }
+    @keyframes animateIn {
+        from {
+            opacity: 0;
+            filter: blur(8px);
+            transform: translateY(-50%);
+        }
+        to {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0%);
+        }
     }
 }

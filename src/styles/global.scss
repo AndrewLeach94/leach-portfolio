@@ -1,9 +1,11 @@
  @import "./mixins.scss";
  @import "./components/case-study.scss";
+ @import './buttons.scss';
 
 :root {
 	--color-black: #0f0f0f;
 	--color-white: #f0f0f0;
+	--color-primary: #531CB3;
 	--color-grey-lightest: #d3d3d3;
 	--color-surface_base: #F3F3F3;
 	--global-box-shadow: 1px 1px 30px 1px #0000005e;
@@ -57,4 +59,16 @@ h5,
 h6 {
 	color: var(--color-black);
 	margin: 0;
+}
+
+a {
+	color: var(--color-primary);
+}
+
+dialog {
+	max-width: 60vw;
+	border-radius: 2rem;
+	&::backdrop {
+		background-color: rgba(0, 4, 23, 0.8);
+	}
 }
