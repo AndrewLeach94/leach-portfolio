@@ -76,3 +76,18 @@ dialog {
 		background-color: rgba(0, 4, 23, 0.8);
 	}
 }
+
+@include tabletDown {
+	h1 {
+		font-size: 3.2rem;
+	}
+	h2 {
+		font-size: 1.7rem;
+	}
+}
+
+@include mobileOnly {
+	dialog {
+		max-width: 100vw;
+	}
+}

@@ -16,6 +16,7 @@ button {
     font-weight: 800;
     box-shadow: 1px 1px 1px grey;
     text-decoration: none;
+    text-align: center;
     &:hover {
         background-color: var(--color-primary-darker);
         transition: all 0.2s;
@@ -32,6 +33,7 @@ button {
     letter-spacing: 2px;
     font-weight: 800;
     text-decoration: none;
+    text-align: center;
     &:hover {
         background-color: var(--color-grey-lightest);
         transition: all 0.2s;
@@ -41,4 +43,11 @@ button {
 .button-group {
     display: flex;
     gap: 0.5rem;
+}
+
+@include mobileOnly {
+    .button-group {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
 }

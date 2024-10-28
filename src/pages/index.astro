@@ -46,7 +46,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</body>
 </html>
 
-<style>
+<style lang="scss">
+	@import "../styles/mixins.scss";
 	.hero {
 		align-items: center;
 		display: flex;
@@ -102,6 +103,45 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		margin: 2rem 0;
+	}
+
+	@include tabletDown {
+		.bio-section {
+			.copy-container {
+				flex-direction: column;
+				gap: 1rem;
+				width: 100%;
+			}
+		}
+
+		section {
+			margin: 10rem 0;
+		}
+	}
+
+	@include tabletOnly {
+		.case-study-container {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@include mobileOnly {
+		.hero {
+			flex-direction: column;
+			p {
+				font-size: 1.3rem;
+			}
+			img {
+				max-width: unset;
+				width: 100%;
+			}
+		}
+		section {
+			margin: 8rem 0;
+		}
+		.case-study-container {
+			grid-template-columns: 1fr;
+		}
 	}
 
 </style>

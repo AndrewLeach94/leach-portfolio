@@ -35,9 +35,6 @@ const CaseStudy = (
     return (
         <div className="case-study-thumbnail">
             <button className="thumbnail-container" onClick={() => openModal()}>
-                <div className="title">
-                    <p>{title}</p>
-                </div>
                 <div className="expand-icon">+</div>
                 <video
                 ref={thumbnailVideoRef}
@@ -49,6 +46,7 @@ const CaseStudy = (
                     <source src={thumbnailAssetSrc} type="video/webm" />
                 </video>
             </button>
+            <p className="title">{title}</p>
              <dialog ref={detailsModal}>
                 <button className="close-button" onClick={() => closeModal()}>X</button>
                 <video muted controls autoPlay loop>
@@ -58,8 +56,8 @@ const CaseStudy = (
                     <h2>{title}</h2>
                     <p>{copy}</p>
                     <div className="button-group">
-                        <a href={ctaUrl} className="btn-primary">{ctaCopy}</a>
-                        {ctaCopyTwo && <a href={ctaTwoUrl} className="btn-secondary">{ctaCopyTwo}</a>}
+                        <a href={ctaUrl} target="_blank" className="btn-primary">{ctaCopy}</a>
+                        {ctaCopyTwo && <a href={ctaTwoUrl} target="_blank" className="btn-secondary">{ctaCopyTwo}</a>}
                     </div>
                 </div>
             </dialog>
