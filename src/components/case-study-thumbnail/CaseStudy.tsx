@@ -2,17 +2,23 @@ import { useRef } from "react";
 
 interface caseStudyProps {
     title: string,
-    assetSrc: string
+    thumbnailAssetSrc: string,
+    modalAssetSrc?: string,
+    copy: string
+    ctaCopy: string
+    ctaUrl: string
+    ctaCopyTwo?: string
+    ctaTwoUrl?: string
 }
 
-const CaseStudy = ({title, assetSrc} : caseStudyProps) => {
+const CaseStudy = (
+    {title, thumbnailAssetSrc, modalAssetSrc, copy, ctaCopy, ctaUrl, ctaCopyTwo, ctaTwoUrl} : caseStudyProps) => {
     const detailsModal = useRef<HTMLDialogElement>(null);
     
     const openModal = () => {
         detailsModal.current?.showModal();
     };
     const closeModal = () => {
-        console.log('close modal triggered');
         detailsModal.current?.close();
     };
 
@@ -40,17 +46,21 @@ const CaseStudy = ({title, assetSrc} : caseStudyProps) => {
                 onMouseEnter={() => handleMouseEnter()}
                 onMouseLeave={() => handleMouseLeave()}
                 >
-                    <source src={assetSrc} type="video/webm" />
+                    <source src={thumbnailAssetSrc} type="video/webm" />
                 </video>
             </button>
              <dialog ref={detailsModal}>
                 <button className="close-button" onClick={() => closeModal()}>X</button>
                 <video muted controls autoPlay loop>
-                    <source src={assetSrc} type="video/webm" />
+                    <source src={modalAssetSrc ? modalAssetSrc : thumbnailAssetSrc} type="video/webm" />
                 </video>
                 <div className="copy-container">
-                    <h2>Native Modal Dialog</h2>
-                    <p>This is a native dialog modal</p>
+                    <h2>{title}</h2>
+                    <p>{copy}</p>
+                    <div className="button-group">
+                        <a href={ctaUrl} className="btn-primary">{ctaCopy}</a>
+                        {ctaCopyTwo && <a href={ctaTwoUrl} className="btn-secondary">{ctaCopyTwo}</a>}
+                    </div>
                 </div>
             </dialog>
         </div>

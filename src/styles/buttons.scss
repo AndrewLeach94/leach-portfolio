@@ -1,3 +1,44 @@
 button {
     cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border: solid 2px transparent; // necessary for horizontal button group sizing
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    box-shadow: 1px 1px 1px grey;
+    text-decoration: none;
+    &:hover {
+        background-color: var(--color-primary-darker);
+        transition: all 0.2s;
+    }
+}
+.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: solid 2px var(--color-black);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-decoration: none;
+    &:hover {
+        background-color: var(--color-grey-lightest);
+        transition: all 0.2s;
+    }
+}
+
+.button-group {
+    display: flex;
+    gap: 0.5rem;
 }

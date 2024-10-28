@@ -79,10 +79,15 @@
         font-weight: 800;
         width: 2rem;
         height: 2rem;
+        transition: all 0.2s;
+        &:hover {
+            background-color: var(--color-grey-lightest);
+            transition: all 0.2s;
+        }
     }
 
     dialog {
-        position: relative;
+        animation: animateOut 0.5s ease-out normal;
         padding: 0;
         .close-button {
             position: absolute;
@@ -95,12 +100,15 @@
             border: solid 2px var(--color-black);
             border-radius: 16px;
         }
+        p {
+            margin: 0.5rem 0 2rem 0;
+        }
         video {
             width: 100%;
             height: auto;
         }
         .copy-container {
-            padding: 1.5rem;
+            padding: 2rem;
         }
     }
 
@@ -117,6 +125,16 @@
             opacity: 1;
             filter: blur(0);
             transform: translateY(0%);
+        }
+    }
+    @keyframes animateOut {
+        from {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(50%);
         }
     }
 }
