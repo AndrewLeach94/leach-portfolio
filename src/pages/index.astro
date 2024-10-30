@@ -3,6 +3,9 @@ import BaseHead from '../components/BaseHead.astro';
 import CaseStudy from '../components/case-study-thumbnail/CaseStudy';
 import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import HeroImage from "../assets/images/home-heading.jpg";
+import { Image } from 'astro:assets';
+import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.webm";
 ---
 
 <!doctype html>
@@ -20,7 +23,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 						<a href="https://www.ndgcommunications.com/" target="_blank">NDG Communications</a>
 					</p>
 				</div>
-				<img src="../../src/assets/images/home-heading.jpg" alt="Andrew's Design Hub" />
+				<Image src={HeroImage} alt="Andrew's Design Hub" height="460" width="460" />
 			</header>
 			<section class="bio-section">
 				<div class="copy-container">
@@ -35,7 +38,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<CaseStudy 
 					client:idle
 					title="NOLA Transit UI Overhaul"
-					thumbnailAssetSrc="src/assets/images/case-studies/nola-transit/nola-transit.webm"
+					thumbnailAssetSrc={NolaTransitCaseStudyVideo}
 					copy="The NOLA Transit app, a volunteer initiative by Code for America New Orleans, provides real-time tracking of buses and streetcars for New Orleanians. This essential feature, previously part of the official city-owned public transit app, was omitted in the launch of their redesigned app Le Pass, prompting community volunteers to create this open-source web app. My role involved refactoring the front-end and redesigning the UI to prioritize mobile users."
 					ctaCopy="View Site"
 					ctaUrl="https://nolatransit.fly.dev/"
