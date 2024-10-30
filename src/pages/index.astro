@@ -13,7 +13,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<section class="hero">
+			<header class="hero">
 				<div class="heading-container">
 					<h1>Andrew's Design Hub</h1>
 					<p>📍Based in New Orleans | Design & Code @ 
@@ -21,7 +21,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					</p>
 				</div>
 				<img src="../../src/assets/images/home-heading.jpg" alt="Andrew's Design Hub" />
-			</section>
+			</header>
 			<section class="bio-section">
 				<div class="copy-container">
 					<p class="heading">Designer / Developer / Design Systems Enthusiast</p>
@@ -30,6 +30,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			</section>
 			<section>
 				<h2>A Small Selection of my Work</h2>
+				<p>Just a small selection of work from over the years. Click on any of them to learn more!</p>
 				<div class="case-study-container">
 					<CaseStudy 
 					client:idle
@@ -69,8 +70,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	}
 	section {
 		margin: 16rem 0;
-		& h2 {
-			text-align: center;
+		text-align: center;
+		h2 {
+			margin-bottom: 0.5rem;
 		}
 	}
 
@@ -86,6 +88,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			justify-content: space-evenly;
 			gap: 2rem;
 			width: 60%;
+			text-align: left;
 		}
 		& .heading {
 			font-size: 1.7rem;

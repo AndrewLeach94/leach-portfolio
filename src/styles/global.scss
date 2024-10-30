@@ -67,13 +67,19 @@ a {
 }
 
 dialog {
-	max-width: 60vw;
+	max-width: 50vw;
 	border-radius: 2rem;
 	background-color: var(--color-white);
 	overflow-x: hidden;
 	scrollbar-width: thin;
 	&::backdrop {
 		background-color: rgba(0, 4, 23, 0.8);
+	}
+}
+
+@include xlarge {
+	dialog {
+		max-width: 40vw;
 	}
 }
 
