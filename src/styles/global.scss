@@ -1,12 +1,15 @@
  @import "./mixins.scss";
  @import "./components/case-study.scss";
  @import './buttons.scss';
+ @import './typography.scss';
 
 :root {
-	--color-black: #0f0f0f;
+	--color-black: #231F20;
 	--color-white: #f0f0f0;
-	--color-primary: #531CB3;
-	--color-primary-darker: #42188b;
+	--color-primary-darker: #0D1830;
+	--color-primary: #274690;
+	--color-primary-lighter: #9FB4E5;
+	--color-primary-darker: #0D1830;
 	--color-grey-lightest: #d3d3d3;
 	--color-surface_base: #F3F3F3;
 	--global-box-shadow: 1px 1px 30px 1px #0000005e;
@@ -31,6 +34,7 @@
 }
 body {
 	background-color: var(--color-surface_base);
+	box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 200px 50px inset;
 	font-family: 'Atkinson', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -40,30 +44,6 @@ body {
 }
 main {
 	@include globalPadding;
-}
-h1 {
-	font-size: 5.6rem;
-	line-height: 1.2;
-}
-h2 {
-	font-size: 3.2rem;
-	line-height: 1.2;
-}
-p {
-	margin: 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: var(--color-black);
-	margin: 0;
-}
-
-a {
-	color: var(--color-primary);
 }
 
 dialog {

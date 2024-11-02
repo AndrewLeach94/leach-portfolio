@@ -1,6 +1,10 @@
 .case-study-thumbnail {
+    background-color: var(--color-primary);
     position: relative;
     transition: all 0.4s;
+    padding: 2rem 0;
+    border-radius: 2rem;
+    box-shadow: var(--global-box-shadow);
     &:hover {
         .expand-icon {
             opacity: 1;
@@ -14,7 +18,7 @@
         justify-content: center;
         position: absolute;
         opacity: 0;
-        top: 0.75rem;
+        top: 3rem;
         right: 0.75rem;
         z-index: 1000;
         width: 2rem;
@@ -28,30 +32,28 @@
     .thumbnail-container {
         z-index: 1000;
         background: none;
+        cursor: url('../assets/icons/filled-circle.png'), auto;
         border: none;
-        cursor: none;
         transition: all 0.4s;
         border-radius: 16px;
         padding: 0;
+        filter: grayscale(0.6);
         video {
             width: 100%;
             height: auto;
             transition: all 0.4s;
-            border-radius: 16px;
         }
 
         &:hover {
             transition: all 0.4s;
-            transform: scale(1.05);
+            filter: grayscale(0);
             video {
-                filter: grayscale(100%);
                 transition: all 0.4s;
-                box-shadow: var(--global-box-shadow);
             }    
         }
     }
     .title {
-        color: var(--color-black);
+        color: var(--color-white);
         font-size: 1.3rem;
         text-align: center;
         margin-top: 1rem;
@@ -91,6 +93,10 @@
         }
         .copy-container {
             padding: 2rem;
+            text-align: left;
+            h2 {
+                text-align: center;
+            }
         }
     }
 
@@ -98,10 +104,23 @@
         animation: animateIn 0.5s ease-out normal;
     }
 
+    @include desktopUp {
+        .button-group {
+            gap: 2rem;
+            a {
+                width: 100%;
+            }
+        }
+    }
+
     @include tabletDown {
         dialog {
             .copy-container {
                 padding: 1.5rem;
+                text-align: center;
+                p {
+                    font-size: 1rem;
+                }
             }
         }
     }

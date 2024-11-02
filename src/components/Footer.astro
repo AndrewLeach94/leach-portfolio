@@ -1,0 +1,100 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<footer>
+	<div class="branding-container">
+		<p>AL</p>
+		<p>Andrew Leach is a New Orleans based designer and developer. Nice to meet you!</p>
+	</div>
+	<div class="contact-container">
+		<div class="item">
+			<p>Phone:</p>
+			<p>425-281-8814</p>
+		</div>
+		<div class="item">
+			<p>Email:</p>
+			<a href="mailto:andrew_leach@outlook.com">andrew_leach@outlook.com</a>
+		</div>
+		<div class="item">
+			<p>Github:</p>
+			<a href="mailto:andrew_leach@outlook.com">@AndrewLeach94</a>
+		</div>
+	</div>
+</footer>
+
+<style lang="scss">
+	@import "../styles/mixins.scss";
+	footer {
+		@include globalPadding;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+		background: var(--color-primary-darker);
+		color: var(--color-primary-lighter);
+		display: flex;
+		justify-content: space-between;
+		a {
+			color: var(--color-white);
+		}
+	}
+	.branding-container {
+		align-items: center;
+		display: flex;
+		gap: 1rem;
+		max-width: 50%;
+		p:first-child {
+			font-size: 2.7rem;
+			font-weight: 800;
+		}
+	}
+	.contact-container {
+		display: flex;
+		justify-content: space-around;
+		gap: 3rem;
+		
+			.item {
+				a {
+					color: var(--color-primary-lighter);
+				}
+				p:first-child {
+					font-size: 1.3rem;
+					font-weight: 800;
+				}
+			}
+	}
+
+	@include tabletOnly {
+		footer {
+			flex-wrap: wrap;
+			gap: 1rem;
+			justify-content: center;
+			.branding-container {
+				max-width: 100%;
+			}
+			.contact-container {
+				width: 100%;
+				justify-content: space-evenly;
+			}
+		}
+	}
+
+	@include mobileOnly {
+		footer {
+			flex-direction: column;
+			gap: 3.5rem;
+			.branding-container {
+				flex-direction: column;
+				max-width: 100%;
+				text-align: center;
+			}
+			.contact-container {
+				flex-direction: column;
+				gap: 2rem;
+				.item {
+					text-align: center;
+				}
+			}
+		}
+	}
+</style>

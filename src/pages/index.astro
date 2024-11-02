@@ -6,6 +6,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import HeroImage from "../assets/images/home-heading.jpg";
 import { Image } from 'astro:assets';
 import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.webm";
+import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh-design-system/torsh-design-system-promo.webm";
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -36,17 +38,26 @@ import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transi
 				<p>Just a small selection of work from over the years. Click on any of them to learn more!</p>
 				<div class="case-study-container">
 					<CaseStudy 
-					client:idle
-					title="NOLA Transit UI Overhaul"
-					thumbnailAssetSrc={NolaTransitCaseStudyVideo}
-					copy="The NOLA Transit app, a volunteer initiative by Code for America New Orleans, provides real-time tracking of buses and streetcars for New Orleanians. This essential feature, previously part of the official city-owned public transit app, was omitted in the launch of their redesigned app Le Pass, prompting community volunteers to create this open-source web app. My role involved refactoring the front-end and redesigning the UI to prioritize mobile users."
-					ctaCopy="View Site"
-					ctaUrl="https://nolatransit.fly.dev/"
-					ctaCopyTwo='Read More'
+						client:idle
+						title="NOLA Transit UI Overhaul"
+						thumbnailAssetSrc={NolaTransitCaseStudyVideo}
+						copy="The NOLA Transit app, a volunteer initiative by Code for America New Orleans, provides real-time tracking of buses and streetcars for New Orleanians. This essential feature, previously part of the official city-owned public transit app, was omitted in the launch of their redesigned app Le Pass, prompting community volunteers to create this open-source web app. My role involved refactoring the front-end and redesigning the UI to prioritize mobile users."
+						ctaCopy="View Site"
+						ctaUrl="https://nolatransit.fly.dev/"
+						ctaCopyTwo='Read More'
+					/>
+					<CaseStudy 
+						client:idle
+						title="TORSH Design System"
+						thumbnailAssetSrc={TorshDesignSystemCaseStudyVideo}
+						copy="While at TORSH, I identified the need for a scalable design library to address inconsistencies caused by the growing design team. By conducting a comprehensive UI teardown and organizing our components,  I developed a design system based on Atomic Design principles, establishing consistent typography, color schemes, and reusable components. This design library helped save a ton of time designing in Sketch and gave our small team a consistent framework to build our designs."
+						ctaCopy="Read More"
+						ctaUrl="https://nolatransit.fly.dev/"
 					/>
 				</div>
 			</section>
 		</main>
+		<Footer />
 	</body>
 </html>
 
@@ -67,13 +78,15 @@ import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transi
 			max-width: 35%;
 			height: auto;
 			border-radius: 25px;
-			opacity: 0.75;
+			opacity: 0.65;
+			filter: sepia(0.2);
 			box-shadow: var(--global-box-shadow);
 		}
 	}
 	section {
 		margin: 16rem 0;
 		text-align: center;
+		font-size: 1.3rem;
 		h2 {
 			margin-bottom: 0.5rem;
 		}
@@ -108,7 +121,8 @@ import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transi
 	.case-study-container {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		margin: 2rem 0;
+		margin: 3rem 0;
+		gap: 3rem;
 	}
 
 	@include tabletDown {

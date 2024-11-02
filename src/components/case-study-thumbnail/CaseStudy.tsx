@@ -56,8 +56,8 @@ const CaseStudy = (
                     <h2>{title}</h2>
                     <p>{copy}</p>
                     <div className="button-group">
-                        <a href={ctaUrl} target="_blank" className="btn-primary">{ctaCopy}</a>
                         {ctaCopyTwo && <a href={ctaTwoUrl} target="_blank" className="btn-secondary">{ctaCopyTwo}</a>}
+                        <a href={ctaUrl} target="_blank" className="btn-primary">{ctaCopy}</a>
                     </div>
                 </div>
             </dialog>
