@@ -5,8 +5,8 @@ interface caseStudyProps {
     thumbnailAssetSrc: string,
     modalAssetSrc?: string,
     copy: string
-    ctaCopy: string
-    ctaUrl: string
+    ctaCopy?: string
+    ctaUrl?: string
     ctaCopyTwo?: string
     ctaTwoUrl?: string
 }
@@ -57,7 +57,7 @@ const CaseStudy = (
                     <p>{copy}</p>
                     <div className="button-group">
                         {ctaCopyTwo && <a href={ctaTwoUrl} target="_blank" className="btn-secondary">{ctaCopyTwo}</a>}
-                        <a href={ctaUrl} target="_blank" className="btn-primary">{ctaCopy}</a>
+                        {ctaCopy && <a href={ctaUrl} target="_blank" className="btn-primary">{ctaCopy}</a>}
                     </div>
                 </div>
             </dialog>

@@ -70,3 +70,8 @@
     //   padding-right: 1.5rem;
     // }
   }
+
+  @mixin fullWidth {
+    margin-left: calc(-8px - 1.5625vw);
+    margin-right: calc(-8px - 1.5625vw);
+  }
