@@ -12,6 +12,7 @@ import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/f
 import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.webm";
 import Footer from '../components/Footer.astro';
 import RecordCollection from '../components/record-collection.astro';
+import Navigation from '../components/Navigation.astro';
 ---
 
 <!doctype html>
@@ -20,24 +21,25 @@ import RecordCollection from '../components/record-collection.astro';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
+		<!-- <Header /> -->
+		 <Navigation />
 		<main>
 			<header class="hero">
 				<div class="heading-container">
-					<h1>Andrew's Design Hub</h1>
+					<h1>Andrew's [ <span id="design-code-text">Design</span> ] Office</h1>
 					<p>📍Based in New Orleans | Design & Code @ 
 						<a href="https://www.ndgcommunications.com/" target="_blank">NDG Communications</a>
 					</p>
 				</div>
-				<Image src={HeroImage} alt="Andrew's Design Hub" height="460" width="460" />
+				<!-- <Image src={HeroImage} alt="Andrew's Design Hub" height="460" width="460" /> -->
 			</header>
 			<section class="bio-section">
-				<div class="copy-container">
+				<div class="copy-container race-in">
 					<p class="heading">Designer / Developer / Design Systems Enthusiast</p>
 					<p class="copy">Heya, I'm Andrew. I work with companies to bridge the gap between design and development, write CSS (my fav), and to build cool things in the browser.</p>
 				</div>
 			</section>
-			<section>
+			<section id="projects">
 				<h2>What Have I Been Working On?</h2>
 				<p>Glad you asked! Click on any of them to learn more!</p>
 				<div class="case-study-container">
@@ -81,8 +83,33 @@ import RecordCollection from '../components/record-collection.astro';
 				</div>
 			</section>
 			<section>
+				<h2>How Can I Help You?</h2>
+				<p>Need help with a project? I'm your guy! Here are some of the services I offer:</p>
+				<div class="services-container">
+					<div class="service-item">
+						<span class="lnr lnr-code"></span>
+						<h3>Front-End Development / CSS Architecture </h3>
+						<p>I'll hop into your code base and build out the design either you or I have designed. </p>
+					</div>
+					<div class="service-item">
+						<span class="lnr lnr-layers"></span>
+						<h3>Wireframing / Prototyping</h3>
+						<p>Unsure just what needs to be built yet? Let's find out quickly and build a proof-of-concept.</p>
+					</div>
+					<div class="service-item">
+						<span class="lnr lnr-cog"></span>
+						<h3>Design Systems</h3>
+						<p>A tidy design library is a happy design library. Whether your product is brand new or five years old, I'll break down your UI into a lightweight and scalable design system.</p>
+					</div>
+					<div class="service-item">
+						<span class="lnr lnr-users"></span>
+						<h3>Accessibility Audit</h3>
+						<p>Let's work to make the web accessible for everyone.</p>
+					</div>
+				</div>
+			</section>
+			<section>
 				<RecordCollection />
-				<p>I love using</p>
 			</section>
 		</main>
 		<Footer />
@@ -92,12 +119,18 @@ import RecordCollection from '../components/record-collection.astro';
 <style lang="scss">
 	@import "../styles/mixins.scss";
 	.hero {
-		align-items: center;
 		display: flex;
-		gap: 4rem;
-		margin: 4rem 0;
+		align-items: center;
+		margin-bottom: 4rem;
+		text-align: center;
+		justify-content: center;
+		height: 100vh;
 		& h1 {
 			margin-bottom: 1.5rem;
+		}
+
+		#design-code-text {
+			color: var(--color-primary);
 		}
 		& p {
 			font-size: 1.7rem;
@@ -112,9 +145,10 @@ import RecordCollection from '../components/record-collection.astro';
 		}
 	}
 	section {
-		margin: 16rem 0;
+		margin: 25rem 0;
 		text-align: center;
 		font-size: 1.3rem;
+		scroll-margin-top: 8rem;
 		h2 {
 			margin-bottom: 0.5rem;
 		}
@@ -144,6 +178,24 @@ import RecordCollection from '../components/record-collection.astro';
 			opacity: 0.75;
 			width: 100%;
 			height: fit-content;
+		}
+	}
+
+	.services-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8rem;
+		margin-top: 5rem;
+		.service-item {
+			span {
+				background: var(--color-black);
+				color: var(--color-primary-lighter);
+				display: inline-block;
+				margin-bottom: 1.5rem;
+				font-size: 60px;
+				padding: 1rem;
+				border-radius: 50px;
+			}
 		}
 	}
 	.case-study-container {
@@ -187,9 +239,68 @@ import RecordCollection from '../components/record-collection.astro';
 		section {
 			margin: 8rem 0;
 		}
+		.services-container {
+			grid-template-columns: 1fr;
+		}
 		.case-study-container {
 			grid-template-columns: 1fr;
 		}
 	}
 
+	/* Define the animation */
+	@keyframes raceIn {
+		0% {
+			opacity: 0;
+			transform: translateX(-10rem);
+		}
+		70% {
+			transform: translateX(2rem) skewX(-15deg);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0) skewX(0deg);
+		}
+	}
+
+	/* Set initial state */
+	.race-in {
+	opacity: 0;
+	}
+
+	/* Add the animation */
+	.race-in.visible {
+	animation: raceIn 1s forwards;
+	}
 </style>
+
+<script>
+	import { gsap } from "gsap";
+	import { TextPlugin } from "gsap/TextPlugin";
+	 // use a script tag or an external JS file
+	 document.addEventListener("DOMContentLoaded", (event) => {
+		gsap.registerPlugin(TextPlugin)
+		// GSAP code here....
+		const designCodeText = document.getElementById("design-code-text");
+		const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1, yoyo: true });
+		timeline.to(designCodeText, {
+			speed: 20,
+			text: "Coding",
+			ease: "none",
+		});
+	});
+  // Intersection Observer to add the "visible" class when element enters viewport
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Optional: Unobserve after it animates once
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.race-in').forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>

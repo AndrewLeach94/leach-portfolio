@@ -6,6 +6,9 @@ h2 {
 	font-size: 4.2rem;
 	line-height: 1.2;
 }
+h3 {
+	font-size: 1.7rem;
+}
 p {
 	margin: 0;
 }
@@ -21,4 +24,19 @@ h6 {
 
 a {
 	color: var(--color-primary);
+}
+
+@include tabletDown {
+	h1 {
+		font-size: 3.2rem;
+	}
+	h2 {
+		font-size: 1.7rem;
+	}
+	h3 {
+		font-size: 1.3rem;
+	}
+	p {
+		font-size: 1rem;
+	}
 }

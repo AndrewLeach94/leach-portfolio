@@ -12,10 +12,12 @@
 	--color-primary-darker: #0D1830;
 	--color-grey-lightest: #d3d3d3;
 	--color-surface_base: #F3F3F3;
+	--color-surface_base-transparent: #f3f3f3b2;
 	--global-box-shadow: 1px 1px 30px 1px #0000005e;
 
 	// z-indexes
 	--z-index-case-study-thumbnail: 10;
+	--z-index-navigation: 100;
 }
 
 @font-face {
@@ -31,6 +33,10 @@
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 body {
 	background-color: var(--color-surface_base);
@@ -59,15 +65,6 @@ dialog {
 @include xlarge {
 	dialog {
 		max-width: 40vw;
-	}
-}
-
-@include tabletDown {
-	h1 {
-		font-size: 3.2rem;
-	}
-	h2 {
-		font-size: 1.7rem;
 	}
 }
 
