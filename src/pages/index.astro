@@ -112,7 +112,7 @@ import Navigation from '../components/Navigation.astro';
 					<div class="service-item">
 						<span class="lnr lnr-layers"></span>
 						<h3>Prototyping</h3>
-						<p>Unsure just what needs to be built yet? Let's find out quickly and build a proof-of-concept.</p>
+						<p>Let's quickly find out what we need to build and cut the communication gaps between design and development.</p>
 					</div>
 					<div class="service-item">
 						<span class="lnr lnr-cog"></span>
@@ -179,6 +179,7 @@ import Navigation from '../components/Navigation.astro';
 		padding: 2rem 0;
 		border-top: solid 1px var(--color-grey);
 		border-bottom: solid 1px var(--color-grey);
+		overflow-x: hidden;
 		& .copy-container {
 			display: flex;
 			align-items: center;
@@ -238,14 +239,6 @@ import Navigation from '../components/Navigation.astro';
 	}
 
 	@include tabletDown {
-		.bio-section {
-			.copy-container {
-				flex-direction: column;
-				gap: 1rem;
-				width: 100%;
-			}
-		}
-
 		section {
 			margin: 10rem 0;
 		}
@@ -254,6 +247,11 @@ import Navigation from '../components/Navigation.astro';
 	@include tabletOnly {
 		.case-study-container {
 			grid-template-columns: repeat(2, 1fr);
+		}
+		.bio-section {
+			.copy-container {
+				width: unset;
+			}
 		}
 	}
 
@@ -266,6 +264,16 @@ import Navigation from '../components/Navigation.astro';
 			img {
 				max-width: unset;
 				width: 100%;
+			}
+		}
+		.bio-section {
+			.copy-container {
+				flex-direction: column;
+				gap: 1rem;
+				width: 100%;
+				.heading, .copy {
+					font-size: unset;
+				}
 			}
 		}
 		section {
@@ -338,11 +346,12 @@ import Navigation from '../components/Navigation.astro';
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+		console.log(entry.target);
           entry.target.classList.add('visible');
           observer.unobserve(entry.target); // Optional: Unobserve after it animates once
         }
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.2 });
 
     document.querySelectorAll('.race-in').forEach((element) => {
       observer.observe(element);
