@@ -10,8 +10,11 @@
 	--color-primary: #274690;
 	--color-primary-lighter: #9FB4E5;
 	--color-primary-darker: #0D1830;
+	--color-secondary: #BCEBCB;
+	--color-grey: grey;
 	--color-grey-lightest: #d3d3d3;
 	--color-surface_base: #F3F3F3;
+	--color-surface_darker: #D6D6D6;
 	--color-surface_base-transparent: #f3f3f3b2;
 	--global-box-shadow: 1px 1px 30px 1px #0000005e;
 
@@ -46,7 +49,6 @@ body {
 	padding: 0;
 	line-height: 1.5;
 	color: rgb(var(--black));
-	cursor: url('../assets/icons/filled-circle.png'), auto;
 }
 main {
 	@include globalPadding;

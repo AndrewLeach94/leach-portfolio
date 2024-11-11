@@ -2,10 +2,12 @@
 const navItems = [
     { name: 'andrewleach.design', href: '/', iconClass: 'lnr lnr-home' },
     { name: 'Projects', href: '#projects', iconClass: 'lnr lnr-layers' },
+    { name: 'Services', href: '#services', iconClass: 'lnr lnr-screen' },
 ];
+
 ---
 
-<nav>
+<nav class="desktop-nav">
     <ul>
         {navItems.map(item => (
             <li>
@@ -14,10 +16,27 @@ const navItems = [
         ))}
     </ul>
 </nav>
+<nav class="mobile-nav">
+    <a class="btn-ghost logo" href="/">andrew.leach.design</a>
+    <button class="toggle-button open lnr lnr-menu-circle"></button>
+    <button class="toggle-button close lnr lnr-cross-circle"></button>
+    <div class="mobile-items">
+        <ul>
+            {navItems.map(item => (
+                <li>
+                    <a class="btn-ghost mobile-nav-links" href={item.href}><span class={item.iconClass}></span>{item.name}</a>
+                </li>
+            ))}
+        </ul>    
+    </div>
+</nav>
 
-<style>
-    nav {
+<style lang="scss">
+    @import "../styles/mixins.scss";
+
+    .desktop-nav, .mobile-nav {
         background-color: var(--color-surface_base-transparent);
+        box-sizing: border-box;
         position: fixed;
         top: 0;
         padding: 1rem;
@@ -42,4 +61,99 @@ const navItems = [
             font-size: 20px;
         }
     }
+
+    .mobile-nav {
+        display: none;
+        padding: 1.75rem 1rem;
+        .toggle-button {
+            font-size: 2.5rem;
+            z-index: var(--z-index-navigation);
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            &.open {
+                opacity: 1;
+                transition: all 0.3s ease-in-out;
+            }
+            &.close {
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        .logo {
+            padding: 0;
+        }
+        .mobile-items {
+            position: absolute;
+            opacity: 0;
+            height: 0;
+            transition: opacity 0.3s linear;
+            ul {
+                display: none;
+            }
+        }
+        &.nav-open {
+            .toggle-button {
+                opacity: 0;
+                transform: rotate(180deg);
+                transition: all 0.3s ease-in-out;
+                &.close {
+                    opacity: 1;
+                    transform: rotate(180deg);
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+            .mobile-items {
+                position: static;
+                background: var(--color-surface_base-transparent);
+                backdrop-filter: blur(8px);
+                position: absolute;
+                inset: 0;
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                justify-content: center;
+                opacity: 1;
+                transition: opacity 0.3s linear;
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3rem;
+                    padding-left: 1rem;
+                }
+                li {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+
+    @include tabletDown {
+        .desktop-nav {
+            display: none;
+        }
+        .mobile-nav {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 </style>
+
+<script>
+    const buttons = document.querySelectorAll('button.toggle-button');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileLinks = document.querySelectorAll('.btn-ghost .mobile-nav-links');
+
+    // Handle clicks on each button.
+    buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        mobileNav?.classList.toggle("nav-open");
+    });
+    });
+
+    mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        mobileNav?.classList.toggle("nav-open");
+    });
+    });
+</script>

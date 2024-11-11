@@ -28,15 +28,11 @@ import { SITE_TITLE } from '../consts';
 	@import "../styles/mixins.scss";
 	footer {
 		@include globalPadding;
+		border-top: solid 3px var(--color-black);
 		padding-top: 4rem;
 		padding-bottom: 4rem;
-		background: var(--color-primary-darker);
-		color: var(--color-primary-lighter);
 		display: flex;
 		justify-content: space-between;
-		a {
-			color: var(--color-white);
-		}
 	}
 	.branding-container {
 		align-items: center;
@@ -54,9 +50,6 @@ import { SITE_TITLE } from '../consts';
 		gap: 3rem;
 		
 			.item {
-				a {
-					color: var(--color-primary-lighter);
-				}
 				p:first-child {
 					font-size: 1.3rem;
 					font-weight: 800;

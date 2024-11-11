@@ -10,6 +10,7 @@ import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh
 import DRBAgentPortalCaseStudyVideo from "../assets/images/case-studies/drb-agent-portal/drb-agent-portal.webm";
 import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/fyh-ui.webm";
 import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.webm";
+import BigEyeDirectVideo from "../assets/images/case-studies/bigeye-direct/bigeye-direct-promo.webm";
 import Footer from '../components/Footer.astro';
 import RecordCollection from '../components/record-collection.astro';
 import Navigation from '../components/Navigation.astro';
@@ -21,25 +22,23 @@ import Navigation from '../components/Navigation.astro';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<!-- <Header /> -->
 		 <Navigation />
 		<main>
 			<header class="hero">
 				<div class="heading-container">
-					<h1>Andrew's [ <span id="design-code-text">Design</span> ] Office</h1>
+					<h1>Andrew's [<span id="design-code-text">Design</span>] Office</h1>
 					<p>📍Based in New Orleans | Design & Code @ 
 						<a href="https://www.ndgcommunications.com/" target="_blank">NDG Communications</a>
 					</p>
 				</div>
-				<!-- <Image src={HeroImage} alt="Andrew's Design Hub" height="460" width="460" /> -->
-			</header>
+				<iframe src="https://lottie.host/embed/0cf27545-fff8-48ab-8b7f-4dfcbc34f909/VqEIaV9HCT.lottie"></iframe>			</header>
 			<section class="bio-section">
 				<div class="copy-container race-in">
 					<p class="heading">Designer / Developer / Design Systems Enthusiast</p>
 					<p class="copy">Heya, I'm Andrew. I work with companies to bridge the gap between design and development, write CSS (my fav), and to build cool things in the browser.</p>
 				</div>
 			</section>
-			<section id="projects">
+			<section id="projects" class="animate-up">
 				<h2>What Have I Been Working On?</h2>
 				<p>Glad you asked! Click on any of them to learn more!</p>
 				<div class="case-study-container">
@@ -49,12 +48,15 @@ import Navigation from '../components/Navigation.astro';
 						thumbnailAssetSrc={NolaTransitCaseStudyVideo}
 						copy="The NOLA Transit app, a volunteer initiative by Code for America New Orleans, provides real-time tracking of buses and streetcars for New Orleanians. This essential feature, previously part of the official city-owned public transit app, was omitted in the launch of their redesigned app Le Pass, prompting community volunteers to create this open-source web app. My role involved refactoring the front-end and redesigning the UI to prioritize mobile users."
 						ctaCopy="View Site"
+						categoryTags={["Design", "Development"]}
 						ctaUrl="https://nolatransit.fly.dev/"
 						ctaCopyTwo='Read More'
 					/>
 					<CaseStudy 
 					client:idle
 					title="Kiosk Touchscreen to Tablet Refactor"
+					categoryTags={["Design", "Development"]}
+					techStackTags={["Angular"]}
 					thumbnailAssetSrc={TabletRefactorVideo}
 					copy="A large national home builder client had a sales center kiosk web app designed for stationary 4K touchscreens but wanted the ability to hand sales staff a tablet they could use to interact with homebuyers. I jumped into the code to take a kiosk site designed specifically for HD TVs and implement a delightful user experience when the sales kiosk was viewed on a tablet. By the end of the project, the kiosk served a dual purpose of serving as a stationary sales kiosk and a mobile iPad guide for the floor staff."
 					/>
@@ -62,49 +64,60 @@ import Navigation from '../components/Navigation.astro';
 						client:idle
 						title="Realtor Portal Dashboard Design"
 						thumbnailAssetSrc={DRBAgentPortalCaseStudyVideo}
+						categoryTags={["Design", "Development"]}
+						techStackTags={["Angular"]}	
 						copy="I designed and helped develop the front-end UI for a real estate agent dashboard integrated into a large national homebuilder's consumer-facing website. Because of the results of a lawsuit and legislation passed in 2024, real estate agents are no longer obligated to a standard and fixed commission after selling a home. This dashboard provides agents with the resources to organize leads and strategically pick homes for sale that will offer them the best commissions and incentives to make a sale."
 					/>
 					<CaseStudy 
 						client:idle
-						title="Home Search Page UI Development"
+						title="Home Search UI Development"
 						thumbnailAssetSrc={LegendUiCaseStudyVideo}
-						copy="I took the lead in developing the UI for the primary home search page for a homebuilder client based in Texas. The original provided designs were set to a 1920x1080 resolution so several on the fly tweaks and modifications had to be made to accommodate responsive for devices where the majority of users browse from, namely, mobile phones and smaller desktops. This site is an Angular application under the hood."
+						categoryTags={["Development"]}
+						techStackTags={["Angular"]}	
+						copy="I took the lead in developing the UI for the primary home search page for a homebuilder client based in Texas. The original provided designs were set to a 1920x1080 resolution so several on the fly tweaks and modifications had to be made to accommodate devices where the majority of users browse from, namely, mobile phones and smaller desktops. This site is an Angular application under the hood."
 						ctaCopy='Visit Site'
 						ctaUrl='https://www.livelegendhomes.com/communities'
 					/>
 					<CaseStudy 
 						client:idle
+						title="BigEye Direct Website Development"
+						thumbnailAssetSrc={BigEyeDirectVideo}
+						categoryTags={["Development"]}
+						techStackTags={["Angular"]}	
+						copy='Provided with a set of desktop designs, I built a fully responsive marketing site for a client.'
+						ctaCopy='Visit Site'
+						ctaUrl='https://www.bigeyedirect.com/'
+					/>
+					<CaseStudy 
+						client:idle
 						title="TORSH Design System"
 						thumbnailAssetSrc={TorshDesignSystemCaseStudyVideo}
+						categoryTags={["Design"]}
+						techStackTags={["Sketch"]}	
 						copy="While at TORSH, I identified the need for a scalable design library to address inconsistencies caused by the growing design team. By conducting a comprehensive UI teardown and organizing our components,  I developed a design system based on Atomic Design principles, establishing consistent typography, color schemes, and reusable components. This design library helped save a ton of time designing in Sketch and gave our small team a consistent framework to build our designs."
 						ctaCopy="Read More"
 						ctaUrl="https://nolatransit.fly.dev/"
 					/>
 				</div>
 			</section>
-			<section>
+			<section id="services" class="animate-up">
 				<h2>How Can I Help You?</h2>
-				<p>Need help with a project? I'm your guy! Here are some of the services I offer:</p>
+				<p>Need help with a project? Here's where I'd love to help:</p>
 				<div class="services-container">
 					<div class="service-item">
 						<span class="lnr lnr-code"></span>
-						<h3>Front-End Development / CSS Architecture </h3>
+						<h3>Front-End Development & CSS Architecture </h3>
 						<p>I'll hop into your code base and build out the design either you or I have designed. </p>
 					</div>
 					<div class="service-item">
 						<span class="lnr lnr-layers"></span>
-						<h3>Wireframing / Prototyping</h3>
+						<h3>Prototyping</h3>
 						<p>Unsure just what needs to be built yet? Let's find out quickly and build a proof-of-concept.</p>
 					</div>
 					<div class="service-item">
 						<span class="lnr lnr-cog"></span>
 						<h3>Design Systems</h3>
 						<p>A tidy design library is a happy design library. Whether your product is brand new or five years old, I'll break down your UI into a lightweight and scalable design system.</p>
-					</div>
-					<div class="service-item">
-						<span class="lnr lnr-users"></span>
-						<h3>Accessibility Audit</h3>
-						<p>Let's work to make the web accessible for everyone.</p>
 					</div>
 				</div>
 			</section>
@@ -121,10 +134,11 @@ import Navigation from '../components/Navigation.astro';
 	.hero {
 		display: flex;
 		align-items: center;
-		margin-bottom: 4rem;
 		text-align: center;
 		justify-content: center;
 		height: 100vh;
+		flex-direction: column;
+		position: relative;
 		& h1 {
 			margin-bottom: 1.5rem;
 		}
@@ -143,6 +157,11 @@ import Navigation from '../components/Navigation.astro';
 			filter: sepia(0.2);
 			box-shadow: var(--global-box-shadow);
 		}
+		iframe {
+			border: none;
+			position: absolute;
+			bottom: 1rem;
+		}
 	}
 	section {
 		margin: 25rem 0;
@@ -158,8 +177,8 @@ import Navigation from '../components/Navigation.astro';
 		display: flex;
 		place-content: center;
 		padding: 2rem 0;
-		border-top: solid 1px #var(--color-black);
-		border-bottom: solid 1px #var(--color-black);
+		border-top: solid 1px var(--color-grey);
+		border-bottom: solid 1px var(--color-grey);
 		& .copy-container {
 			display: flex;
 			align-items: center;
@@ -169,12 +188,12 @@ import Navigation from '../components/Navigation.astro';
 			text-align: left;
 		}
 		& .heading {
-			font-size: 1.7rem;
+			font-size: 2.3rem;
 			width: 100%;
 			height: fit-content;
 		}
 		& .copy {
-			font-size: 1.3rem;
+			font-size: 1.7rem;
 			opacity: 0.75;
 			width: 100%;
 			height: fit-content;
@@ -183,10 +202,15 @@ import Navigation from '../components/Navigation.astro';
 
 	.services-container {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 8rem;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 3rem;
 		margin-top: 5rem;
 		.service-item {
+			text-align: left;
+			padding: 2rem;
+			border-radius: 2rem;
+			border: solid 3px var(--color-black);
+			box-shadow: var(--global-box-shadow);
 			span {
 				background: var(--color-black);
 				color: var(--color-primary-lighter);
@@ -203,6 +227,14 @@ import Navigation from '../components/Navigation.astro';
 		grid-template-columns: repeat(3, 1fr);
 		margin: 3rem 0;
 		gap: 3rem;
+	}
+
+	@include desktopUp {
+		.hero {
+			#design-code-text {
+				margin: 0 2rem;
+			}
+		}
 	}
 
 	@include tabletDown {
@@ -262,14 +294,27 @@ import Navigation from '../components/Navigation.astro';
 		}
 	}
 
+	@keyframes animateUp {
+		from {
+			opacity: 0;
+			transform: translateY(10rem);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
 	/* Set initial state */
-	.race-in {
+	.race-in, .animate-up {
 	opacity: 0;
 	}
 
-	/* Add the animation */
 	.race-in.visible {
 	animation: raceIn 1s forwards;
+	}
+	.animate-up.visible {
+		animation: animateUp 1s forwards;
 	}
 </style>
 
@@ -297,9 +342,12 @@ import Navigation from '../components/Navigation.astro';
           observer.unobserve(entry.target); // Optional: Unobserve after it animates once
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.4 });
 
     document.querySelectorAll('.race-in').forEach((element) => {
+      observer.observe(element);
+    });
+    document.querySelectorAll('.animate-up').forEach((element) => {
       observer.observe(element);
     });
   });

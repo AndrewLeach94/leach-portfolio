@@ -7,12 +7,25 @@ interface caseStudyProps {
     copy: string
     ctaCopy?: string
     ctaUrl?: string
+    categoryTags?: string[];
+    techStackTags?: string[];
     ctaCopyTwo?: string
     ctaTwoUrl?: string
 }
 
 const CaseStudy = (
-    {title, thumbnailAssetSrc, modalAssetSrc, copy, ctaCopy, ctaUrl, ctaCopyTwo, ctaTwoUrl} : caseStudyProps) => {
+    {
+    title, 
+    thumbnailAssetSrc, 
+    modalAssetSrc, 
+    copy, 
+    ctaCopy, 
+    ctaUrl, 
+    ctaCopyTwo, 
+    ctaTwoUrl,
+    categoryTags,
+    techStackTags,
+} : caseStudyProps) => {
     const detailsModal = useRef<HTMLDialogElement>(null);
     
     const openModal = () => {
@@ -46,6 +59,11 @@ const CaseStudy = (
                     <source src={thumbnailAssetSrc} type="video/webm" />
                 </video>
             </button>
+            {/* loop through category and tech stack tags */}
+            <div className="tags">
+                {categoryTags && categoryTags.map((tag, index) => <span className="category-chip" key={index}>{tag}</span>)}
+                {techStackTags && techStackTags.map((tag, index) => <span className="tech-chip" key={index}>{tag}</span>)}
+            </div>
             <p className="title">{title}</p>
              <dialog ref={detailsModal}>
                 <button className="close-button" onClick={() => closeModal()}>X</button>
@@ -53,12 +71,17 @@ const CaseStudy = (
                     <source src={modalAssetSrc ? modalAssetSrc : thumbnailAssetSrc} type="video/webm" />
                 </video>
                 <div className="copy-container">
+                    <div className="tags">
+                        {categoryTags && categoryTags.map((tag, index) => <span className="category-chip" key={index}>{tag}</span>)}
+                        {techStackTags && techStackTags.map((tag, index) => <span className="tech-chip" key={index}>{tag}</span>)}
+                    </div>
                     <h2>{title}</h2>
                     <p>{copy}</p>
                     <div className="button-group">
                         {ctaCopyTwo && <a href={ctaTwoUrl} target="_blank" className="btn-secondary">{ctaCopyTwo}</a>}
                         {ctaCopy && <a href={ctaUrl} target="_blank" className="btn-primary">{ctaCopy}</a>}
                     </div>
+                    <p className="close-text">Press <code>esc</code> to close</p>
                 </div>
             </dialog>
         </div>
