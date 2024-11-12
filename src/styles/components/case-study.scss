@@ -2,7 +2,7 @@
     background-color: var(--color-primary);
     position: relative;
     transition: all 0.4s;
-    padding-bottom: 2rem;
+    padding-bottom: 1.25rem;
     border-radius: 1rem;
     box-shadow: var(--global-box-shadow);
     .expand-icon {
@@ -15,7 +15,7 @@
         right: 0.75rem;
         z-index: 1000;
         width: 2rem;
-        height: 2rem;
+        height: auto;
         font-size: 1.5rem;
         font-weight: 800;
         background-color: var(--color-primary);
@@ -53,6 +53,7 @@
         gap: 1rem;
         font-size: 0.75rem;
         padding: 0 1rem;
+        margin-top: 0.5rem;
         .category-chip {
             background-color: var(--color-primary-lighter);
             padding: 0.25rem 0.75rem;
@@ -68,35 +69,31 @@
         color: var(--color-white);
         font-size: 1.3rem;
         text-align: center;
-        margin-top: 1rem;
-    }
-    .close-button {
-        font-size: 1.3rem;
-        font-weight: 800;
-        width: 2rem;
-        height: 2rem;
-        transition: all 0.2s;
-        &:hover {
-            background-color: var(--color-grey-lightest);
-            transition: all 0.2s;
-            transform: rotate(180deg);
-        }
+        margin-top: 1.25rem;
+        padding: 0 1rem;
     }
 
     dialog {
         animation: animateOut 0.5s ease-out normal;
         padding: 0;
         .close-button {
+            font-size: 1.3rem;
             position: absolute;
             right: 1rem;
             top: 1rem;
             align-self: flex-end;
-            width: 2rem;
-            height: 2rem;
+            width: 2.75rem;
+            height: 2.75rem;
             background: var(--color-white);
             border: solid 2px var(--color-black);
-            border-radius: 16px;
-        }
+            border-radius: 50%;
+            transition: all 0.2s;
+            &:hover {
+                background-color: var(--color-grey-lightest);
+                transition: all 0.2s;
+                transform: rotate(180deg);
+            }    
+    }
         p {
             margin: 0.5rem 0 2rem 0;
         }
@@ -109,7 +106,7 @@
             text-align: left;
             h2 {
                 text-align: center;
-                margin-top: 1.75rem;
+                margin: 1.75rem 0;
             }
             .tags {
                 justify-content: center;
@@ -147,7 +144,6 @@
         dialog {
             .copy-container {
                 padding: 1.5rem;
-                text-align: center;
                 p {
                     font-size: 1rem;
                 }

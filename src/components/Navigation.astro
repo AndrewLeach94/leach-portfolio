@@ -125,6 +125,11 @@ const navItems = [
                     font-size: 1.3rem;
                 }
             }
+                @supports not (backdrop-filter: blur(8px)) {
+                .mobile-items {
+                    background-color: var(--color-surface_base); /* Fallback style */
+                }
+            }
         }
     }
 
@@ -142,18 +147,18 @@ const navItems = [
 <script>
     const buttons = document.querySelectorAll('button.toggle-button');
     const mobileNav = document.querySelector('.mobile-nav');
-    const mobileLinks = document.querySelectorAll('.btn-ghost .mobile-nav-links');
+    const mobileLinks = document.querySelectorAll('a.mobile-nav-links');
 
     // Handle clicks on each button.
     buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        mobileNav?.classList.toggle("nav-open");
-    });
+        button.addEventListener('click', () => {
+            mobileNav?.classList.toggle("nav-open");
+        });
     });
 
     mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
-        mobileNav?.classList.toggle("nav-open");
+        mobileNav?.classList.remove("nav-open");
     });
     });
 </script>
