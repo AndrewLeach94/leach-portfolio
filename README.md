@@ -1,4 +1,6 @@
-# Andrew Leach Astro Dev Site
+# Andrew Leach Portfolio V2
+
+I rebuilt my portfolio from the ground up in 2024 in order to swtich over from Gatsby to the Astro framework.
 
 ## 🚀 Project Structure
 
