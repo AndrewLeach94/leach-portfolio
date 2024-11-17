@@ -28,7 +28,8 @@ import Navigation from '../components/Navigation.astro';
 						<a href="https://www.ndgcommunications.com/" target="_blank">NDG Communications</a>
 					</p>
 				</div>
-				<iframe src="https://lottie.host/embed/0cf27545-fff8-48ab-8b7f-4dfcbc34f909/VqEIaV9HCT.lottie"></iframe>			</header>
+				<p class="scroll-text">↓ Whatcha Waiting For? ↓</p>
+			</header>
 			<section class="bio-section">
 				<div class="copy-container race-in">
 					<p class="heading">Designer / Developer / Design Systems Enthusiast</p>
@@ -155,10 +156,13 @@ import Navigation from '../components/Navigation.astro';
 			filter: sepia(0.2);
 			box-shadow: var(--global-box-shadow);
 		}
-		iframe {
-			border: none;
+		.scroll-text {
 			position: absolute;
 			bottom: 1rem;
+			color: var(--color-grey);
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 1s;
 		}
 	}
 	section {
@@ -284,7 +288,6 @@ import Navigation from '../components/Navigation.astro';
 		}
 	}
 
-	/* Define the animation */
 	@keyframes raceIn {
 		0% {
 			opacity: 0;
@@ -296,6 +299,15 @@ import Navigation from '../components/Navigation.astro';
 		100% {
 			opacity: 1;
 			transform: translateX(0) skewX(0deg);
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 
