@@ -1,5 +1,5 @@
 ---
-title: 'My NOLA Transit UI Overhaul'
+title: 'NOLA Transit UI Overhaul'
 pubDate: '2022-11-05'
 category: 'Tech'
 description: 'Lorem'
