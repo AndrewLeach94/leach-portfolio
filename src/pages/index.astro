@@ -324,20 +324,25 @@ import Navigation from '../components/Navigation.astro';
 </style>
 
 <script>
-	import { gsap } from "gsap";
-	import { TextPlugin } from "gsap/TextPlugin";
-	 // use a script tag or an external JS file
-	 document.addEventListener("DOMContentLoaded", (event) => {
-		gsap.registerPlugin(TextPlugin)
-		// GSAP code here....
-		const designCodeText = document.getElementById("design-code-text");
-		const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1, yoyo: true });
-		timeline.to(designCodeText, {
-			speed: 20,
-			text: "Coding",
-			ease: "none",
-		});
-	});
+document.addEventListener("DOMContentLoaded", () => {
+  // Use requestIdleCallback to avoid blocking the main thread
+  requestIdleCallback(() => {
+    import("gsap").then(({ gsap }) => {
+      import("gsap/TextPlugin").then(({ TextPlugin }) => {
+        gsap.registerPlugin(TextPlugin);
+
+        // Animation code
+        const designCodeText = document.getElementById("design-code-text");
+        const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1, yoyo: true });
+        timeline.to(designCodeText, {
+          speed: 20,
+          text: "Coding",
+          ease: "none",
+        });
+      });
+    });
+  });
+});
   // Intersection Observer to add the "visible" class when element enters viewport
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
