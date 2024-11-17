@@ -4,6 +4,7 @@ pubDate: "2020-09-15"
 category: "Tech"
 description: "Lorem"
 heroImage: "/blog/torsh-design-system/colors.png"
+heroImageAlt: 'Design system preview'
 ---
 
 

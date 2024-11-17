@@ -4,6 +4,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -21,7 +22,7 @@ const posts = (await getCollection('blog')).sort(
 			<nav>
 				<span class="lnr lnr-book"></span>
 				<h1>Andrew's Brain Dump</h1>
-				<p>My thoughts on tech and the occasional other tidbit.</p>
+				<p>My thoughts on tech and the occasional other tidbits.</p>
 				<ul>
 					<li>
 						<a href="/blog/">Latest</a>
@@ -52,6 +53,7 @@ const posts = (await getCollection('blog')).sort(
 				</ul>
 			</section>
 		</main>
+		<Footer />
 	</body>
 </html>
 
@@ -80,6 +82,7 @@ const posts = (await getCollection('blog')).sort(
 		}
 		p {
 			margin-top: 1rem;
+			font-size: 1.3rem;
 		}
 		ul {
 			padding-left: 0;
@@ -87,6 +90,7 @@ const posts = (await getCollection('blog')).sort(
 		li {
 			list-style: none;
 			margin-bottom: 1rem;
+			font-size: 1.3rem;
 		}
 	}
 
@@ -96,6 +100,7 @@ const posts = (await getCollection('blog')).sort(
 		column-gap: 2rem;
 		row-gap: 5rem;
 		margin-top: 0;
+		margin-bottom: 3rem;
 		height: 78vh;
 		overflow-y: scroll;
 		.blog-item {
@@ -155,6 +160,12 @@ const posts = (await getCollection('blog')).sort(
 			border-right: none;
 			padding-right: 0;
 			border-bottom: solid 2px var(--color-grey-lightest);
+			p {
+				font-size: 1rem;
+			}
+			li {
+				font-size: 1rem;
+			}
 		}
 		.blog-list-container {
 			grid-template-columns: 1fr;

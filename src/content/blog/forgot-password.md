@@ -4,6 +4,7 @@ pubDate: "2020-09-10"
 category: "Tech"
 description: "Lorem"
 heroImage: '/blog/torsh-forgot-password/password-visible.jpg'
+heroImageAlt: 'Forgot password screen'
 ---
 
 ## The Problem:

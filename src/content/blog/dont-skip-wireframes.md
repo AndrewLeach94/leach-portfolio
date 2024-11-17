@@ -3,6 +3,7 @@ title: "Don't Skip Out on Those Ugly Wireframes"
 pubDate: "2022-06-02"
 description: 'Lorem ipsum dolor sit amet'
 heroImage: '/blog/dont-skip-wireframes/wireframes.jpg'
+heroImageAlt: 'Wireframe'
 category: 'Tech'
 ---
 Occasionally, the design process can be more complicated than it needs to be. There isn’t really a “one size fits all” method to designing. The context of the problem and the project requirements are always the best determiners of what’s needed from the designer. Is a complete high-fidelity mockup the solution to what the project needs right now? <em>Not always!</em> A few not-so-attractive wireframes are more than likely all you need.

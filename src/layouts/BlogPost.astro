@@ -4,81 +4,118 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 // import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, category, heroImageAlt, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
 
 	<body>
-		<Header />
+		<Navigation />
 		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+			<a class="back-link" href="/blog">← All Posts</a>
+			<header class="hero-image">
+				{heroImage && <img width={1020} height={510} src={heroImage} alt={heroImageAlt} />}
+			</header>
+			<article class="blog-content">
+				<div class="title">
+					<p class="category">{category}</p>
+					<!-- <div class="date">
+						Originally Published: 
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<div class="last-updated-on">
+									Last updated on <FormattedDate date={updatedDate} />
+								</div>
+							)
+						}
+					</div> -->
+					<h1>{title}</h1>
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
+				<slot />
 			</article>
 		</main>
+		<Footer />
 	</body>
 </html>
+
+<style lang="scss">
+	@import "../styles/mixins.scss";
+
+	main {
+		padding-top: 1rem;
+		padding-left: 20%;
+		padding-right: 20%;
+		margin-bottom: 3rem;
+	}
+
+	.back-link {
+		font-size: 1.3rem;
+	}
+
+	.hero-image {
+		padding-top: 1rem;
+		img {
+			width: 100%;
+			height: auto;
+			border-radius: 16px;
+		}
+	}
+
+	.category {
+		font-size: 1rem;
+		font-weight: 600;
+		padding: 0.25rem 1rem;
+		color: var(--color-grey);
+		border: solid 2px var(--color-grey);
+		border-radius: 1rem;
+		width: fit-content;
+	}
+
+	.title {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 1rem;
+		text-align: center;
+		line-height: 1;
+		h1 {
+			margin-top: 1rem;
+			padding-bottom: 1rem;
+			border-bottom: solid 2px var(--color-grey-lightest);
+		}
+	}
+
+	.date {
+		margin-top: 1rem;
+		color: var(--color-grey);
+	}
+
+	.last-updated-on {
+		font-style: italic;
+	}
+
+	@include tabletDown {
+		main {
+			padding-left: 10%;
+			padding-right: 10%;
+		}
+	}
+
+	@include mobileOnly {
+		main {
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+		}
+	}
+
+</style>
+
