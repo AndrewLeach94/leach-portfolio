@@ -3,7 +3,7 @@ title: 'My NOLA Transit UI Overhaul'
 pubDate: '2022-11-05'
 category: 'Tech'
 description: 'Lorem'
-heroImage: '/blog/nola-transit/blog-nola-transit-hero.webp'
+heroImage: '/blog/nola-transit-overhaul/blog-nola-transit-hero.webp'
 heroImageAlt: 'Nola transit app'
 ---
 
@@ -13,9 +13,9 @@ Credits:
 - Primary Development: [Benjamin Eckel](https://github.com/bhelx)
 - Front-End UI Work: [Andrew Leach](https://github.com/AndrewLeach94) (Me)
 
-![The original three tabbed UI](./../../../public/blog/nola-transit/blog-nola-transit-old-ui.webp)
+![The original three tabbed UI](./../../../public/blog/nola-transit-overhaul/blog-nola-transit-old-ui.webp)
 
-![New single page UI designed mobile-first](./../../../public/blog/nola-transit/blog-nola-transit-new-ui.webp)
+![New single page UI designed mobile-first](./../../../public/blog/nola-transit-overhaul/blog-nola-transit-new-ui.webp)
 
 
 
