@@ -56,7 +56,7 @@ const CaseStudy = (
                 onMouseEnter={() => handleMouseEnter()}
                 onMouseLeave={() => handleMouseLeave()}
                 >
-                    <source src={thumbnailAssetSrc} type="video/webm" />
+                    <source src={thumbnailAssetSrc} type="video/mp4" />
                 </video>
             </button>
             {/* loop through category and tech stack tags */}
@@ -68,7 +68,7 @@ const CaseStudy = (
              <dialog ref={detailsModal}>
                 <button className="close-button" onClick={() => closeModal()}>X</button>
                 <video muted controls autoPlay loop>
-                    <source src={modalAssetSrc ? modalAssetSrc : thumbnailAssetSrc} type="video/webm" />
+                    <source src={modalAssetSrc ? modalAssetSrc : thumbnailAssetSrc} type="video/mp4" />
                 </video>
                 <div className="copy-container">
                     <div className="tags">

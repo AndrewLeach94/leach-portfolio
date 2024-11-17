@@ -1,16 +1,13 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import CaseStudy from '../components/case-study-thumbnail/CaseStudy';
-import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import HeroImage from "../assets/images/home-heading.jpg";
-import { Image } from 'astro:assets';
-import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.webm";
-import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh-design-system/torsh-design-system-promo.webm";
-import DRBAgentPortalCaseStudyVideo from "../assets/images/case-studies/drb-agent-portal/drb-agent-portal.webm";
-import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/fyh-ui.webm";
-import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.webm";
-import BigEyeDirectVideo from "../assets/images/case-studies/bigeye-direct/bigeye-direct-promo.webm";
+import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.mp4";
+import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh-design-system/torsh-design-system-promo.mp4";
+import DRBAgentPortalCaseStudyVideo from "../assets/images/case-studies/drb-agent-portal/drb-agent-portal.mp4";
+import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/fyh-ui.mp4";
+import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.mp4";
+import BigEyeDirectVideo from "../assets/images/case-studies/bigeye-direct/bigeye-direct-promo.mp4";
 import Footer from '../components/Footer.astro';
 import RecordCollection from '../components/record-collection.astro';
 import Navigation from '../components/Navigation.astro';
@@ -94,6 +91,8 @@ import Navigation from '../components/Navigation.astro';
 						categoryTags={["Design"]}
 						techStackTags={["Sketch"]}	
 						copy="While at TORSH, I identified the need for a scalable design library to address inconsistencies caused by the growing design team. By conducting a comprehensive UI teardown and organizing our components,  I developed a design system based on Atomic Design principles, establishing consistent typography, color schemes, and reusable components. This design library helped save a ton of time designing in Sketch and gave our small team a consistent framework to build our designs."
+						ctaCopy='Read More'
+						ctaUrl='/blog/torsh-design-system/'
 					/>
 				</div>
 			</section>
