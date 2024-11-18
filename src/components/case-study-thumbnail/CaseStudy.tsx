@@ -18,7 +18,6 @@ const CaseStudy = (
     title, 
     thumbnailAssetSrc,
     videoSrc,
-    modalAssetSrc, 
     copy, 
     ctaCopy, 
     ctaUrl, 
