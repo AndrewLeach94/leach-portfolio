@@ -227,9 +227,15 @@ import Navigation from '../components/Navigation.astro';
 	}
 	.case-study-container {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		margin: 3rem 0;
 		gap: 3rem;
+	}
+
+	@include xlarge {
+		.case-study-container {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
 	@include desktopUp {
@@ -243,6 +249,17 @@ import Navigation from '../components/Navigation.astro';
 	@include tabletDown {
 		section {
 			margin: 10rem 0;
+		}
+		.services-container {
+			grid-template-columns: 1fr;
+			.service-item {
+				span {
+					margin-bottom: 0.75rem;
+				}
+				h3 {
+					margin-bottom: 0.5rem;
+				}
+			}
 		}
 	}
 
@@ -279,9 +296,6 @@ import Navigation from '../components/Navigation.astro';
 		}
 		section {
 			margin: 8rem 0;
-		}
-		.services-container {
-			grid-template-columns: 1fr;
 		}
 		.case-study-container {
 			grid-template-columns: 1fr;
