@@ -1,16 +1,13 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import CaseStudy from '../components/case-study-thumbnail/CaseStudy';
-import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import HeroImage from "../assets/images/home-heading.jpg";
-import { Image } from 'astro:assets';
-import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.webm";
-import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh-design-system/torsh-design-system-promo.webm";
-import DRBAgentPortalCaseStudyVideo from "../assets/images/case-studies/drb-agent-portal/drb-agent-portal.webm";
-import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/fyh-ui.webm";
-import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.webm";
-import BigEyeDirectVideo from "../assets/images/case-studies/bigeye-direct/bigeye-direct-promo.webm";
+import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.mp4";
+import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh-design-system/torsh-design-system-promo.mp4";
+import DRBAgentPortalCaseStudyVideo from "../assets/images/case-studies/drb-agent-portal/drb-agent-portal.mp4";
+import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/fyh-ui.mp4";
+import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.mp4";
+import BigEyeDirectVideo from "../assets/images/case-studies/bigeye-direct/bigeye-direct-promo.mp4";
 import Footer from '../components/Footer.astro';
 import RecordCollection from '../components/record-collection.astro';
 import Navigation from '../components/Navigation.astro';
@@ -31,7 +28,8 @@ import Navigation from '../components/Navigation.astro';
 						<a href="https://www.ndgcommunications.com/" target="_blank">NDG Communications</a>
 					</p>
 				</div>
-				<iframe src="https://lottie.host/embed/0cf27545-fff8-48ab-8b7f-4dfcbc34f909/VqEIaV9HCT.lottie"></iframe>			</header>
+				<p class="scroll-text">↓ Whatcha Waiting For? ↓</p>
+			</header>
 			<section class="bio-section">
 				<div class="copy-container race-in">
 					<p class="heading">Designer / Developer / Design Systems Enthusiast</p>
@@ -48,8 +46,10 @@ import Navigation from '../components/Navigation.astro';
 						thumbnailAssetSrc={NolaTransitCaseStudyVideo}
 						copy="The NOLA Transit app, a volunteer initiative by Code for America New Orleans, provides real-time tracking of buses and streetcars for New Orleanians. This essential feature, previously part of the official city-owned public transit app, was omitted in the launch of their redesigned app Le Pass, prompting community volunteers to create this open-source web app. My role involved refactoring the front-end and redesigning the UI to prioritize mobile users."
 						ctaCopy="View Site"
+						ctaCopyTwo='Read More'
 						categoryTags={["Design", "Development"]}
 						ctaUrl="https://nolatransit.fly.dev/"
+						ctaTwoUrl='/blog/nola-transit-overhaul/'
 					/>
 					<CaseStudy 
 					client:idle
@@ -94,6 +94,8 @@ import Navigation from '../components/Navigation.astro';
 						categoryTags={["Design"]}
 						techStackTags={["Sketch"]}	
 						copy="While at TORSH, I identified the need for a scalable design library to address inconsistencies caused by the growing design team. By conducting a comprehensive UI teardown and organizing our components,  I developed a design system based on Atomic Design principles, establishing consistent typography, color schemes, and reusable components. This design library helped save a ton of time designing in Sketch and gave our small team a consistent framework to build our designs."
+						ctaCopy='Read More'
+						ctaUrl='/blog/torsh-design-system/'
 					/>
 				</div>
 			</section>
@@ -133,7 +135,7 @@ import Navigation from '../components/Navigation.astro';
 		align-items: center;
 		text-align: center;
 		justify-content: center;
-		height: 100vh;
+		height: 80vh;
 		flex-direction: column;
 		position: relative;
 		& h1 {
@@ -154,10 +156,13 @@ import Navigation from '../components/Navigation.astro';
 			filter: sepia(0.2);
 			box-shadow: var(--global-box-shadow);
 		}
-		iframe {
-			border: none;
+		.scroll-text {
 			position: absolute;
 			bottom: 1rem;
+			color: var(--color-grey);
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 1s;
 		}
 	}
 	section {
@@ -222,9 +227,15 @@ import Navigation from '../components/Navigation.astro';
 	}
 	.case-study-container {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		margin: 3rem 0;
 		gap: 3rem;
+	}
+
+	@include xlarge {
+		.case-study-container {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
 	@include desktopUp {
@@ -238,6 +249,17 @@ import Navigation from '../components/Navigation.astro';
 	@include tabletDown {
 		section {
 			margin: 10rem 0;
+		}
+		.services-container {
+			grid-template-columns: 1fr;
+			.service-item {
+				span {
+					margin-bottom: 0.75rem;
+				}
+				h3 {
+					margin-bottom: 0.5rem;
+				}
+			}
 		}
 	}
 
@@ -275,15 +297,11 @@ import Navigation from '../components/Navigation.astro';
 		section {
 			margin: 8rem 0;
 		}
-		.services-container {
-			grid-template-columns: 1fr;
-		}
 		.case-study-container {
 			grid-template-columns: 1fr;
 		}
 	}
 
-	/* Define the animation */
 	@keyframes raceIn {
 		0% {
 			opacity: 0;
@@ -295,6 +313,15 @@ import Navigation from '../components/Navigation.astro';
 		100% {
 			opacity: 1;
 			transform: translateX(0) skewX(0deg);
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 
@@ -323,20 +350,25 @@ import Navigation from '../components/Navigation.astro';
 </style>
 
 <script>
-	import { gsap } from "gsap";
-	import { TextPlugin } from "gsap/TextPlugin";
-	 // use a script tag or an external JS file
-	 document.addEventListener("DOMContentLoaded", (event) => {
-		gsap.registerPlugin(TextPlugin)
-		// GSAP code here....
-		const designCodeText = document.getElementById("design-code-text");
-		const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1, yoyo: true });
-		timeline.to(designCodeText, {
-			speed: 20,
-			text: "Coding",
-			ease: "none",
-		});
-	});
+document.addEventListener("DOMContentLoaded", () => {
+  // Use requestIdleCallback to avoid blocking the main thread
+  requestIdleCallback(() => {
+    import("gsap").then(({ gsap }) => {
+      import("gsap/TextPlugin").then(({ TextPlugin }) => {
+        gsap.registerPlugin(TextPlugin);
+
+        // Animation code
+        const designCodeText = document.getElementById("design-code-text");
+        const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1, yoyo: true });
+        timeline.to(designCodeText, {
+          speed: 20,
+          text: "Coding",
+          ease: "none",
+        });
+      });
+    });
+  });
+});
   // Intersection Observer to add the "visible" class when element enters viewport
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {

@@ -1,9 +1,9 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -14,90 +14,37 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
 	</head>
 	<body>
-		<Header />
+		<Navigation />
 		<main>
-			<section>
+			<nav>
+				<span class="lnr lnr-book"></span>
+				<h1>Andrew's Brain Dump</h1>
+				<p>My thoughts on tech and the occasional other tidbits.</p>
 				<ul>
+					<li>
+						<a href="/blog/">Latest</a>
+					</li>
+				</ul>
+			</nav>
+			<section>
+				<ul class="blog-list-container">
 					{
 						posts.map((post) => (
-							<li>
+							<li class="blog-item">
 								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
+									<div class="image-container">
+										<img width={720} height={360} src={post.data.heroImage} alt="" />
+									</div>
+									<p class="category">{post.data.category}</p>
+									<p class="title">
+										{post.data.title}
+										<span class="title-underline"></span>
 									</p>
+									{/* <p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p> */}
 								</a>
 							</li>
 						))
@@ -105,5 +52,124 @@ const posts = (await getCollection('blog')).sort(
 				</ul>
 			</section>
 		</main>
+		<Footer />
 	</body>
 </html>
+
+<style lang="scss">
+	@import '../../styles/mixins.scss';
+
+	main {
+		@include globalPadding;
+		display: grid;
+		grid-template-columns: minmax(20%, 25%) 4fr;
+		gap: 2rem;
+		padding-top: 4rem;
+		overflow: hidden;
+	}
+
+	nav {
+		border-right: solid 1px var(--color-grey-lightest);
+		padding-right: 2rem;
+		span {
+			display: inline;
+			font-size: 2.3rem;
+		}
+		h1 {
+			display: inline;
+			font-size: 2.3rem;
+		}
+		p {
+			margin-top: 1rem;
+			font-size: 1.3rem;
+		}
+		ul {
+			padding-left: 0;
+		}
+		li {
+			list-style: none;
+			margin-bottom: 1rem;
+			font-size: 1.3rem;
+		}
+	}
+
+	.blog-list-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 2rem;
+		row-gap: 5rem;
+		margin-top: 0;
+		margin-bottom: 3rem;
+		height: 78vh;
+		overflow-y: scroll;
+		.blog-item {
+			list-style: none;
+			&:hover {
+				img {
+					transition: transform 0.3s;
+					transform: scale(1.10);
+				}
+				.title-underline {
+					width: 100%;
+					transition: all 0.2s;
+				}
+			}
+		}
+		a {
+			text-decoration: none;
+			color: var(--color-black);
+		}
+		img {
+			width: 100%;
+			object-fit: cover;
+			transition: transform 0.2s;
+			transform: scale(1.05);
+			&:hover {
+				transition: transform 0.4s;
+			}
+		}
+		.title {
+			font-size: 1.7rem;
+			width: fit-content;
+		}
+		.title-underline {
+			display: block;
+			width: 0;
+			height: 4px;
+			background-color: var(--color-black);
+			transition: all 0.2s ease-in-out;
+		}
+		.category {
+			margin-top: 1.25rem;
+			color: var(--color-grey);
+		}
+	}
+
+	.image-container {
+		overflow: hidden;
+		border-radius: 1rem;
+	}
+
+	@include tabletDown {
+		main {
+			grid-template-columns: 1fr;
+			padding-top: 3rem;
+		}
+		nav {
+			border-right: none;
+			padding-right: 0;
+			border-bottom: solid 2px var(--color-grey-lightest);
+			p {
+				font-size: 1rem;
+			}
+			li {
+				font-size: 1rem;
+			}
+		}
+		.blog-list-container {
+			grid-template-columns: 1fr;
+			height: auto;
+			padding-left: unset;
+		}
+	}
+</style>

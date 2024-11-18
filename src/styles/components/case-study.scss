@@ -15,7 +15,7 @@
         right: 0.75rem;
         z-index: 1000;
         width: 2rem;
-        height: auto;
+        height: 1.75rem;
         font-size: 1.5rem;
         font-weight: 800;
         background-color: var(--color-primary);
@@ -76,18 +76,22 @@
     dialog {
         animation: animateOut 0.5s ease-out normal;
         padding: 0;
+
+        .close-container {
+            display: flex;
+            justify-content: flex-end;
+            background-color: black;
+        }
         .close-button {
             font-size: 1.3rem;
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            align-self: flex-end;
             width: 2.75rem;
             height: 2.75rem;
             background: var(--color-white);
-            border: solid 2px var(--color-black);
+            border: solid 3px var(--color-black);
             border-radius: 50%;
             transition: all 0.2s;
+            margin: 0.75rem;
+            flex-shrink: 0;
             &:hover {
                 background-color: var(--color-grey-lightest);
                 transition: all 0.2s;
@@ -128,6 +132,8 @@
     }
 
     dialog[open] {
+        display: flex;
+        flex-direction: column;
         animation: animateIn 0.5s ease-out normal;
     }
 

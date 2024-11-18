@@ -49,26 +49,27 @@ const CaseStudy = (
         <div className="case-study-thumbnail">
             <button className="thumbnail-container" onClick={() => openModal()}>
                 <div className="expand-icon">+</div>
-                <video
+                {/* <video
                 ref={thumbnailVideoRef}
                 muted
                 loop
                 onMouseEnter={() => handleMouseEnter()}
                 onMouseLeave={() => handleMouseLeave()}
                 >
-                    <source src={thumbnailAssetSrc} type="video/webm" />
-                </video>
+                    <source src={thumbnailAssetSrc} type="video/mp4" />
+                </video> */}
             </button>
-            {/* loop through category and tech stack tags */}
             <div className="tags">
                 {categoryTags && categoryTags.map((tag, index) => <span className="category-chip" key={index}>{tag}</span>)}
                 {techStackTags && techStackTags.map((tag, index) => <span className="tech-chip" key={index}>{tag}</span>)}
             </div>
             <p className="title">{title}</p>
              <dialog ref={detailsModal}>
-                <button className="close-button" onClick={() => closeModal()}>X</button>
+                <div className="close-container">
+                    <button className="close-button" onClick={() => closeModal()}>X</button>
+                </div>
                 <video muted controls autoPlay loop>
-                    <source src={modalAssetSrc ? modalAssetSrc : thumbnailAssetSrc} type="video/webm" />
+                    <source src={modalAssetSrc ? modalAssetSrc : thumbnailAssetSrc} type="video/mp4" />
                 </video>
                 <div className="copy-container">
                     <div className="tags">
@@ -78,7 +79,7 @@ const CaseStudy = (
                     <h2>{title}</h2>
                     <p>{copy}</p>
                     <div className="button-group">
-                        {ctaCopyTwo && <a href={ctaTwoUrl} target="_blank" className="btn-secondary">{ctaCopyTwo}</a>}
+                        {ctaCopyTwo && <a href={ctaTwoUrl} className="btn-secondary">{ctaCopyTwo}</a>}
                         {ctaCopy && <a href={ctaUrl} target="_blank" className="btn-primary">{ctaCopy}</a>}
                     </div>
                     <p className="close-text">Press <code>esc</code> to close</p>

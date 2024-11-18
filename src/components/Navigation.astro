@@ -1,8 +1,9 @@
 ---
 const navItems = [
-    { name: 'andrewleach.design', href: '/', iconClass: 'lnr lnr-home' },
-    { name: 'Projects', href: '#projects', iconClass: 'lnr lnr-layers' },
-    { name: 'Services', href: '#services', iconClass: 'lnr lnr-screen' },
+    { name: 'andrewleach.dev', href: '/', iconClass: 'lnr lnr-home' },
+    { name: 'Projects', href: '/#projects', iconClass: 'lnr lnr-layers' },
+    { name: 'Services', href: '/#services', iconClass: 'lnr lnr-screen' },
+    { name: 'Blog', href: '/blog/', iconClass: 'lnr lnr-book' },
 ];
 
 ---
@@ -35,15 +36,24 @@ const navItems = [
     @import "../styles/mixins.scss";
 
     .desktop-nav, .mobile-nav {
-        background-color: var(--color-surface_base-transparent);
         box-sizing: border-box;
-        position: fixed;
+        position: sticky;
         top: 0;
         padding: 1rem;
         z-index: var(--z-index-navigation);
-        backdrop-filter: blur(8px);
         width: 100%;
         border-bottom: solid 1px var(--color-grey-lightest);
+        &::before { // this "fake" shadow element is necessary for a chrome backdrop-filter bug
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-surface_base-transparent);
+            backdrop-filter: blur(8px);
+            z-index: -1;
+        }
     }
     ul {
         list-style: none;
