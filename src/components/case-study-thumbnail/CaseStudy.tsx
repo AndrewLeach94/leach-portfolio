@@ -50,7 +50,9 @@ const CaseStudy = (
         <div className="case-study-thumbnail">
             <button className="thumbnail-container" onClick={() => openModal()}>
                 <div className="expand-icon">+</div>
-                <img src={thumbnailAssetSrc} alt={title} />
+                <div className="image-container">
+                    <img src={thumbnailAssetSrc} alt={title} />
+                </div>
             </button>
             <div className="tags">
                 {categoryTags && categoryTags.map((tag, index) => <span className="category-chip" key={index}>{tag}</span>)}
