@@ -49,7 +49,7 @@ const CaseStudy = (
         <div className="case-study-thumbnail">
             <button className="thumbnail-container" onClick={() => openModal()}>
                 <div className="expand-icon">+</div>
-                <video
+                {/* <video
                 ref={thumbnailVideoRef}
                 muted
                 loop
@@ -57,7 +57,7 @@ const CaseStudy = (
                 onMouseLeave={() => handleMouseLeave()}
                 >
                     <source src={thumbnailAssetSrc} type="video/mp4" />
-                </video>
+                </video> */}
             </button>
             <div className="tags">
                 {categoryTags && categoryTags.map((tag, index) => <span className="category-chip" key={index}>{tag}</span>)}
