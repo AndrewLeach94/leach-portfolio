@@ -3,11 +3,17 @@ import BaseHead from '../components/BaseHead.astro';
 import CaseStudy from '../components/case-study-thumbnail/CaseStudy';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.mp4";
+import NolaTransitThumbnail from "../assets/images/case-studies/nola-transit/nola-transit-thumbnail.webp";
 import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh-design-system/torsh-design-system-promo.mp4";
+import TorshDesignSystemThumbnail from "../assets/images/case-studies/torsh-design-system/torsh-design-system-thumbnail.webp";
 import DRBAgentPortalCaseStudyVideo from "../assets/images/case-studies/drb-agent-portal/drb-agent-portal.mp4";
+import DRBAgentPortalThumbnail from "../assets/images/case-studies/drb-agent-portal/agent-portal-thumbnail.webp";
 import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/fyh-ui.mp4";
+import LegendUiThumbnail from "../assets/images/case-studies/legend-homes/fyh-thumbnail.webp";
 import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.mp4";
+import TabletRefactorThumbnail from "../assets/images/case-studies/epcon/tablet-refactor-thumbnail.webp";
 import BigEyeDirectVideo from "../assets/images/case-studies/bigeye-direct/bigeye-direct-promo.mp4";
+import BigEyeDirectThumbnail from "../assets/images/case-studies/bigeye-direct/bigeye-thumbnail.webp";
 import Footer from '../components/Footer.astro';
 import RecordCollection from '../components/record-collection.astro';
 import Navigation from '../components/Navigation.astro';
@@ -43,7 +49,8 @@ import Navigation from '../components/Navigation.astro';
 					<CaseStudy 
 						client:idle
 						title="NOLA Transit UI Overhaul"
-						thumbnailAssetSrc={NolaTransitCaseStudyVideo}
+						videoSrc={NolaTransitCaseStudyVideo}
+						thumbnailAssetSrc={NolaTransitThumbnail.src}
 						copy="The NOLA Transit app, a volunteer initiative by Code for America New Orleans, provides real-time tracking of buses and streetcars for New Orleanians. This essential feature, previously part of the official city-owned public transit app, was omitted in the launch of their redesigned app Le Pass, prompting community volunteers to create this open-source web app. My role involved refactoring the front-end and redesigning the UI to prioritize mobile users."
 						ctaCopy="View Site"
 						ctaCopyTwo='Read More'
@@ -56,13 +63,15 @@ import Navigation from '../components/Navigation.astro';
 					title="Kiosk Touchscreen to Tablet Refactor"
 					categoryTags={["Design", "Development"]}
 					techStackTags={["Angular"]}
-					thumbnailAssetSrc={TabletRefactorVideo}
+					videoSrc={TabletRefactorVideo}
+					thumbnailAssetSrc={TabletRefactorThumbnail.src}
 					copy="A large national home builder client had a sales center kiosk web app designed for stationary 4K touchscreens but wanted the ability to hand sales staff a tablet they could use to interact with homebuyers. I jumped into the code to take a kiosk site designed specifically for HD TVs and implement a delightful user experience when the sales kiosk was viewed on a tablet. By the end of the project, the kiosk served a dual purpose of serving as a stationary sales kiosk and a mobile iPad guide for the floor staff."
 					/>
 					<CaseStudy 
 						client:idle
 						title="Realtor Portal Dashboard Design"
-						thumbnailAssetSrc={DRBAgentPortalCaseStudyVideo}
+						thumbnailAssetSrc={DRBAgentPortalThumbnail.src}
+						videoSrc={DRBAgentPortalCaseStudyVideo}
 						categoryTags={["Design", "Development"]}
 						techStackTags={["Angular", "Figma"]}	
 						copy="I designed and helped develop the front-end UI for a real estate agent dashboard integrated into a large national homebuilder's consumer-facing website. Because of the results of a lawsuit and legislation passed in 2024, real estate agents are no longer obligated to a standard and fixed commission after selling a home. This dashboard provides agents with the resources to organize leads and strategically pick homes for sale that will offer them the best commissions and incentives to make a sale."
@@ -70,7 +79,8 @@ import Navigation from '../components/Navigation.astro';
 					<CaseStudy 
 						client:idle
 						title="Home Search UI Development"
-						thumbnailAssetSrc={LegendUiCaseStudyVideo}
+						videoSrc={LegendUiCaseStudyVideo}
+						thumbnailAssetSrc={LegendUiThumbnail.src}
 						categoryTags={["Development"]}
 						techStackTags={["Angular"]}	
 						copy="I took the lead in developing the UI for the primary home search page for a homebuilder client based in Texas. The original provided designs were set to a 1920x1080 resolution so several on the fly tweaks and modifications had to be made to accommodate devices where the majority of users browse from, namely, mobile phones and smaller desktops. This site is an Angular application under the hood."
@@ -80,9 +90,10 @@ import Navigation from '../components/Navigation.astro';
 					<CaseStudy 
 						client:idle
 						title="BigEye Direct Website Development"
-						thumbnailAssetSrc={BigEyeDirectVideo}
+						videoSrc={BigEyeDirectVideo}
+						thumbnailAssetSrc={BigEyeDirectThumbnail.src}
 						categoryTags={["Development"]}
-						techStackTags={["Angular"]}	
+						techStackTags={["Angular"]}
 						copy='Provided with a set of desktop designs, I built a fully responsive marketing site for a client.'
 						ctaCopy='Visit Site'
 						ctaUrl='https://www.bigeyedirect.com/'
@@ -90,7 +101,8 @@ import Navigation from '../components/Navigation.astro';
 					<CaseStudy 
 						client:idle
 						title="TORSH Design System"
-						thumbnailAssetSrc={TorshDesignSystemCaseStudyVideo}
+						videoSrc={TorshDesignSystemCaseStudyVideo}
+						thumbnailAssetSrc={TorshDesignSystemThumbnail.src}
 						categoryTags={["Design"]}
 						techStackTags={["Sketch"]}	
 						copy="While at TORSH, I identified the need for a scalable design library to address inconsistencies caused by the growing design team. By conducting a comprehensive UI teardown and organizing our components,  I developed a design system based on Atomic Design principles, establishing consistent typography, color schemes, and reusable components. This design library helped save a ton of time designing in Sketch and gave our small team a consistent framework to build our designs."

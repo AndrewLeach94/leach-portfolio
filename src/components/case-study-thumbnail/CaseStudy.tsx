@@ -3,7 +3,7 @@ import { useRef } from "react";
 interface caseStudyProps {
     title: string,
     thumbnailAssetSrc: string,
-    modalAssetSrc?: string,
+    videoSrc: string,
     copy: string
     ctaCopy?: string
     ctaUrl?: string
@@ -16,7 +16,8 @@ interface caseStudyProps {
 const CaseStudy = (
     {
     title, 
-    thumbnailAssetSrc, 
+    thumbnailAssetSrc,
+    videoSrc,
     modalAssetSrc, 
     copy, 
     ctaCopy, 
@@ -49,15 +50,7 @@ const CaseStudy = (
         <div className="case-study-thumbnail">
             <button className="thumbnail-container" onClick={() => openModal()}>
                 <div className="expand-icon">+</div>
-                {/* <video
-                ref={thumbnailVideoRef}
-                muted
-                loop
-                onMouseEnter={() => handleMouseEnter()}
-                onMouseLeave={() => handleMouseLeave()}
-                >
-                    <source src={thumbnailAssetSrc} type="video/mp4" />
-                </video> */}
+                <img src={thumbnailAssetSrc} alt={title} />
             </button>
             <div className="tags">
                 {categoryTags && categoryTags.map((tag, index) => <span className="category-chip" key={index}>{tag}</span>)}
@@ -69,7 +62,7 @@ const CaseStudy = (
                     <button className="close-button" onClick={() => closeModal()}>X</button>
                 </div>
                 <video muted controls autoPlay loop>
-                    <source src={modalAssetSrc ? modalAssetSrc : thumbnailAssetSrc} type="video/mp4" />
+                    <source src={videoSrc} type="video/mp4" />
                 </video>
                 <div className="copy-container">
                     <div className="tags">
