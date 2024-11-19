@@ -239,15 +239,9 @@ import Navigation from '../components/Navigation.astro';
 	}
 	.case-study-container {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		margin: 3rem 0;
 		gap: 3rem;
-	}
-
-	@include xlarge {
-		.case-study-container {
-			grid-template-columns: repeat(3, 1fr);
-		}
 	}
 
 	@include desktopUp {
@@ -301,6 +295,9 @@ import Navigation from '../components/Navigation.astro';
 				flex-direction: column;
 				gap: 1rem;
 				width: 100%;
+				.heading {
+					font-weight: 800;
+				}
 				.heading, .copy {
 					font-size: unset;
 				}

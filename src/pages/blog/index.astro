@@ -19,7 +19,6 @@ const posts = (await getCollection('blog')).sort(
 		<Navigation />
 		<main>
 			<nav>
-				<span class="lnr lnr-book"></span>
 				<h1>Andrew's Brain Dump</h1>
 				<p>My thoughts on tech and the occasional other tidbits.</p>
 				<ul>
@@ -111,7 +110,7 @@ const posts = (await getCollection('blog')).sort(
 				}
 				.title-underline {
 					width: 100%;
-					transition: all 0.2s;
+					transition: all 0.7s cubic-bezier(0.785, 0.135, 0.15, 0.86);		
 				}
 			}
 		}
@@ -137,7 +136,7 @@ const posts = (await getCollection('blog')).sort(
 			width: 0;
 			height: 4px;
 			background-color: var(--color-black);
-			transition: all 0.2s ease-in-out;
+			transition: all 0.7s cubic-bezier(0.785, 0.135, 0.15, 0.86);		
 		}
 		.category {
 			margin-top: 1.25rem;

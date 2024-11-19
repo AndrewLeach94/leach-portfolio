@@ -3,51 +3,50 @@
     position: relative;
     transition: all 0.4s;
     padding-bottom: 1.25rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     box-shadow: var(--global-box-shadow);
-    .expand-icon {
+    // .expand-icon {
+    //     color: var(--color-white);
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     position: absolute;
+    //     top: 1rem;
+    //     right: 0.75rem;
+    //     z-index: 1000;
+    //     width: 2rem;
+    //     height: 1.75rem;
+    //     font-size: 1.5rem;
+    //     font-weight: 800;
+    //     background-color: var(--color-primary);
+    //     border-radius: 50%;
+    //     padding-bottom: 0.2rem;
+    // }
+    .expand {
         color: var(--color-white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 1rem;
-        right: 0.75rem;
-        z-index: 1000;
-        width: 2rem;
-        height: 1.75rem;
-        font-size: 1.5rem;
-        font-weight: 800;
-        background-color: var(--color-primary);
-        border-radius: 50%;
-        padding-bottom: 0.2rem;
+        font-size: 1.7rem;
+        display: block;
+        margin: 0.5rem 1rem;
+        align-self: flex-end;
     }
     .thumbnail-container {
+        display: flex;
+        flex-direction: column;    
         z-index: 1000;
         background: none;
         border: none;
         transition: all 0.4s;
-        border-radius: 16px;
+        border-radius: 0.5rem;
         padding: 0;
-        filter: grayscale(0.6);
 
-        .image-container {
-            width: 100%;
-            height: 13.75rem;
-            overflow: hidden;
-        }
         img {
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
             width: 100%;
             height: auto;
             transition: all 0.4s;
-            object-fit: cover;
         }
 
         &:hover {
             transition: all 0.4s;
-            filter: grayscale(0);
             img {
                 transition: all 0.4s;
             }    
@@ -74,9 +73,9 @@
     }
     .title {
         color: var(--color-white);
-        font-size: 1.3rem;
+        font-size: 1rem;
         text-align: center;
-        margin-top: 1.25rem;
+        margin-top: 1rem;
         padding: 0 1rem;
     }
 
@@ -87,7 +86,7 @@
         .close-container {
             display: flex;
             justify-content: flex-end;
-            background-color: black;
+            background-color: var(--color-primary);
         }
         .close-button {
             font-size: 1.3rem;
@@ -153,8 +152,18 @@
         }
     }
 
-    @include tabletDown {
+    @include xlarge {
+        .title {
+            font-size: 1.3rem;
+        }
+    }
 
+    @include tabletDown {
+        .thumbnail-container {
+            .image-container {
+                height: auto;
+            }
+        }
         dialog {
             .copy-container {
                 padding: 1.5rem;
