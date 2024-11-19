@@ -3,7 +3,7 @@ import { useRef } from "react";
 interface caseStudyProps {
     title: string,
     thumbnailAssetSrc: string,
-    modalAssetSrc?: string,
+    videoSrc: string,
     copy: string
     ctaCopy?: string
     ctaUrl?: string
@@ -16,8 +16,8 @@ interface caseStudyProps {
 const CaseStudy = (
     {
     title, 
-    thumbnailAssetSrc, 
-    modalAssetSrc, 
+    thumbnailAssetSrc,
+    videoSrc,
     copy, 
     ctaCopy, 
     ctaUrl, 
@@ -34,42 +34,25 @@ const CaseStudy = (
     const closeModal = () => {
         detailsModal.current?.close();
     };
-
-    const thumbnailVideoRef = useRef<HTMLVideoElement>(null);
     
-    const handleMouseEnter = () => {
-        thumbnailVideoRef.current?.play();
-    };
-    
-    const handleMouseLeave = () => {
-        thumbnailVideoRef.current?.pause();
-    };
-
     return (
         <div className="case-study-thumbnail">
             <button className="thumbnail-container" onClick={() => openModal()}>
-                <div className="expand-icon">+</div>
-                <video
-                ref={thumbnailVideoRef}
-                muted
-                loop
-                onMouseEnter={() => handleMouseEnter()}
-                onMouseLeave={() => handleMouseLeave()}
-                >
-                    <source src={thumbnailAssetSrc} type="video/mp4" />
-                </video>
+                {/* <div className="expand-icon">+</div> */}
+                <span className="expand lnr lnr-frame-expand"></span>
+                <img src={thumbnailAssetSrc} alt={title} />
+                <p className="title">{title}</p>
             </button>
-            <div className="tags">
+            {/* <div className="tags">
                 {categoryTags && categoryTags.map((tag, index) => <span className="category-chip" key={index}>{tag}</span>)}
                 {techStackTags && techStackTags.map((tag, index) => <span className="tech-chip" key={index}>{tag}</span>)}
-            </div>
-            <p className="title">{title}</p>
+            </div> */}
              <dialog ref={detailsModal}>
                 <div className="close-container">
                     <button className="close-button" onClick={() => closeModal()}>X</button>
                 </div>
                 <video muted controls autoPlay loop>
-                    <source src={modalAssetSrc ? modalAssetSrc : thumbnailAssetSrc} type="video/mp4" />
+                    <source src={videoSrc} type="video/mp4" />
                 </video>
                 <div className="copy-container">
                     <div className="tags">
