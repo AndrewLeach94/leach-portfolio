@@ -1,16 +1,19 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import CaseStudy from '../components/case-study-thumbnail/CaseStudy';
-import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import HeroImage from "../assets/images/home-heading.jpg";
-import { Image } from 'astro:assets';
-import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.webm";
-import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh-design-system/torsh-design-system-promo.webm";
-import DRBAgentPortalCaseStudyVideo from "../assets/images/case-studies/drb-agent-portal/drb-agent-portal.webm";
-import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/fyh-ui.webm";
-import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.webm";
-import BigEyeDirectVideo from "../assets/images/case-studies/bigeye-direct/bigeye-direct-promo.webm";
+import NolaTransitCaseStudyVideo from "../assets/images/case-studies/nola-transit/nola-transit.mp4";
+import NolaTransitThumbnail from "../assets/images/case-studies/nola-transit/nola-transit-thumbnail.webp";
+import TorshDesignSystemCaseStudyVideo from "../assets/images/case-studies/torsh-design-system/torsh-design-system-promo.mp4";
+import TorshDesignSystemThumbnail from "../assets/images/case-studies/torsh-design-system/torsh-design-system-thumbnail.webp";
+import DRBAgentPortalCaseStudyVideo from "../assets/images/case-studies/drb-agent-portal/drb-agent-portal.mp4";
+import DRBAgentPortalThumbnail from "../assets/images/case-studies/drb-agent-portal/agent-portal-thumbnail.webp";
+import LegendUiCaseStudyVideo from "../assets/images/case-studies/legend-homes/fyh-ui.mp4";
+import LegendUiThumbnail from "../assets/images/case-studies/legend-homes/fyh-thumbnail.webp";
+import TabletRefactorVideo from "../assets/images/case-studies/epcon/tablet-refactor.mp4";
+import TabletRefactorThumbnail from "../assets/images/case-studies/epcon/tablet-refactor-thumbnail.webp";
+import BigEyeDirectVideo from "../assets/images/case-studies/bigeye-direct/bigeye-direct-promo.mp4";
+import BigEyeDirectThumbnail from "../assets/images/case-studies/bigeye-direct/bigeye-thumbnail.webp";
 import Footer from '../components/Footer.astro';
 import RecordCollection from '../components/record-collection.astro';
 import Navigation from '../components/Navigation.astro';
@@ -31,7 +34,8 @@ import Navigation from '../components/Navigation.astro';
 						<a href="https://www.ndgcommunications.com/" target="_blank">NDG Communications</a>
 					</p>
 				</div>
-				<iframe src="https://lottie.host/embed/0cf27545-fff8-48ab-8b7f-4dfcbc34f909/VqEIaV9HCT.lottie"></iframe>			</header>
+				<p class="scroll-text">↓ Whatcha Waiting For? ↓</p>
+			</header>
 			<section class="bio-section">
 				<div class="copy-container race-in">
 					<p class="heading">Designer / Developer / Design Systems Enthusiast</p>
@@ -45,24 +49,29 @@ import Navigation from '../components/Navigation.astro';
 					<CaseStudy 
 						client:idle
 						title="NOLA Transit UI Overhaul"
-						thumbnailAssetSrc={NolaTransitCaseStudyVideo}
+						videoSrc={NolaTransitCaseStudyVideo}
+						thumbnailAssetSrc={NolaTransitThumbnail.src}
 						copy="The NOLA Transit app, a volunteer initiative by Code for America New Orleans, provides real-time tracking of buses and streetcars for New Orleanians. This essential feature, previously part of the official city-owned public transit app, was omitted in the launch of their redesigned app Le Pass, prompting community volunteers to create this open-source web app. My role involved refactoring the front-end and redesigning the UI to prioritize mobile users."
 						ctaCopy="View Site"
+						ctaCopyTwo='Read More'
 						categoryTags={["Design", "Development"]}
 						ctaUrl="https://nolatransit.fly.dev/"
+						ctaTwoUrl='/blog/nola-transit-overhaul/'
 					/>
 					<CaseStudy 
 					client:idle
 					title="Kiosk Touchscreen to Tablet Refactor"
 					categoryTags={["Design", "Development"]}
 					techStackTags={["Angular"]}
-					thumbnailAssetSrc={TabletRefactorVideo}
+					videoSrc={TabletRefactorVideo}
+					thumbnailAssetSrc={TabletRefactorThumbnail.src}
 					copy="A large national home builder client had a sales center kiosk web app designed for stationary 4K touchscreens but wanted the ability to hand sales staff a tablet they could use to interact with homebuyers. I jumped into the code to take a kiosk site designed specifically for HD TVs and implement a delightful user experience when the sales kiosk was viewed on a tablet. By the end of the project, the kiosk served a dual purpose of serving as a stationary sales kiosk and a mobile iPad guide for the floor staff."
 					/>
 					<CaseStudy 
 						client:idle
 						title="Realtor Portal Dashboard Design"
-						thumbnailAssetSrc={DRBAgentPortalCaseStudyVideo}
+						thumbnailAssetSrc={DRBAgentPortalThumbnail.src}
+						videoSrc={DRBAgentPortalCaseStudyVideo}
 						categoryTags={["Design", "Development"]}
 						techStackTags={["Angular", "Figma"]}	
 						copy="I designed and helped develop the front-end UI for a real estate agent dashboard integrated into a large national homebuilder's consumer-facing website. Because of the results of a lawsuit and legislation passed in 2024, real estate agents are no longer obligated to a standard and fixed commission after selling a home. This dashboard provides agents with the resources to organize leads and strategically pick homes for sale that will offer them the best commissions and incentives to make a sale."
@@ -70,7 +79,8 @@ import Navigation from '../components/Navigation.astro';
 					<CaseStudy 
 						client:idle
 						title="Home Search UI Development"
-						thumbnailAssetSrc={LegendUiCaseStudyVideo}
+						videoSrc={LegendUiCaseStudyVideo}
+						thumbnailAssetSrc={LegendUiThumbnail.src}
 						categoryTags={["Development"]}
 						techStackTags={["Angular"]}	
 						copy="I took the lead in developing the UI for the primary home search page for a homebuilder client based in Texas. The original provided designs were set to a 1920x1080 resolution so several on the fly tweaks and modifications had to be made to accommodate devices where the majority of users browse from, namely, mobile phones and smaller desktops. This site is an Angular application under the hood."
@@ -80,9 +90,10 @@ import Navigation from '../components/Navigation.astro';
 					<CaseStudy 
 						client:idle
 						title="BigEye Direct Website Development"
-						thumbnailAssetSrc={BigEyeDirectVideo}
+						videoSrc={BigEyeDirectVideo}
+						thumbnailAssetSrc={BigEyeDirectThumbnail.src}
 						categoryTags={["Development"]}
-						techStackTags={["Angular"]}	
+						techStackTags={["Angular"]}
 						copy='Provided with a set of desktop designs, I built a fully responsive marketing site for a client.'
 						ctaCopy='Visit Site'
 						ctaUrl='https://www.bigeyedirect.com/'
@@ -90,10 +101,13 @@ import Navigation from '../components/Navigation.astro';
 					<CaseStudy 
 						client:idle
 						title="TORSH Design System"
-						thumbnailAssetSrc={TorshDesignSystemCaseStudyVideo}
+						videoSrc={TorshDesignSystemCaseStudyVideo}
+						thumbnailAssetSrc={TorshDesignSystemThumbnail.src}
 						categoryTags={["Design"]}
 						techStackTags={["Sketch"]}	
 						copy="While at TORSH, I identified the need for a scalable design library to address inconsistencies caused by the growing design team. By conducting a comprehensive UI teardown and organizing our components,  I developed a design system based on Atomic Design principles, establishing consistent typography, color schemes, and reusable components. This design library helped save a ton of time designing in Sketch and gave our small team a consistent framework to build our designs."
+						ctaCopy='Read More'
+						ctaUrl='/blog/torsh-design-system/'
 					/>
 				</div>
 			</section>
@@ -104,7 +118,7 @@ import Navigation from '../components/Navigation.astro';
 					<div class="service-item">
 						<span class="lnr lnr-code"></span>
 						<h3>Front-End Development & CSS Architecture </h3>
-						<p>I'll hop into your code base and build out the design either you or I have designed. </p>
+						<p>I'll hop into your codebase and build out the design either you or I have designed.</p>
 					</div>
 					<div class="service-item">
 						<span class="lnr lnr-layers"></span>
@@ -133,7 +147,7 @@ import Navigation from '../components/Navigation.astro';
 		align-items: center;
 		text-align: center;
 		justify-content: center;
-		height: 100vh;
+		height: 80vh;
 		flex-direction: column;
 		position: relative;
 		& h1 {
@@ -154,10 +168,13 @@ import Navigation from '../components/Navigation.astro';
 			filter: sepia(0.2);
 			box-shadow: var(--global-box-shadow);
 		}
-		iframe {
-			border: none;
+		.scroll-text {
 			position: absolute;
 			bottom: 1rem;
+			color: var(--color-grey);
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 1s;
 		}
 	}
 	section {
@@ -209,6 +226,9 @@ import Navigation from '../components/Navigation.astro';
 			border-radius: 2rem;
 			border: solid 3px var(--color-black);
 			box-shadow: var(--global-box-shadow);
+			h3 {
+				margin-bottom: 0.5rem;
+			}
 			span {
 				background: var(--color-black);
 				color: var(--color-primary-lighter);
@@ -224,7 +244,7 @@ import Navigation from '../components/Navigation.astro';
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		margin: 3rem 0;
-		gap: 3rem;
+		gap: 4rem;
 	}
 
 	@include desktopUp {
@@ -238,6 +258,14 @@ import Navigation from '../components/Navigation.astro';
 	@include tabletDown {
 		section {
 			margin: 10rem 0;
+		}
+		.services-container {
+			grid-template-columns: 1fr;
+			.service-item {
+				span {
+					margin-bottom: 0.75rem;
+				}
+			}
 		}
 	}
 
@@ -267,6 +295,9 @@ import Navigation from '../components/Navigation.astro';
 				flex-direction: column;
 				gap: 1rem;
 				width: 100%;
+				.heading {
+					font-weight: 800;
+				}
 				.heading, .copy {
 					font-size: unset;
 				}
@@ -275,15 +306,11 @@ import Navigation from '../components/Navigation.astro';
 		section {
 			margin: 8rem 0;
 		}
-		.services-container {
-			grid-template-columns: 1fr;
-		}
 		.case-study-container {
 			grid-template-columns: 1fr;
 		}
 	}
 
-	/* Define the animation */
 	@keyframes raceIn {
 		0% {
 			opacity: 0;
@@ -295,6 +322,15 @@ import Navigation from '../components/Navigation.astro';
 		100% {
 			opacity: 1;
 			transform: translateX(0) skewX(0deg);
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 
@@ -323,20 +359,25 @@ import Navigation from '../components/Navigation.astro';
 </style>
 
 <script>
-	import { gsap } from "gsap";
-	import { TextPlugin } from "gsap/TextPlugin";
-	 // use a script tag or an external JS file
-	 document.addEventListener("DOMContentLoaded", (event) => {
-		gsap.registerPlugin(TextPlugin)
-		// GSAP code here....
-		const designCodeText = document.getElementById("design-code-text");
-		const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1, yoyo: true });
-		timeline.to(designCodeText, {
-			speed: 20,
-			text: "Coding",
-			ease: "none",
-		});
-	});
+document.addEventListener("DOMContentLoaded", () => {
+  // Use requestIdleCallback to avoid blocking the main thread
+  requestIdleCallback(() => {
+    import("gsap").then(({ gsap }) => {
+      import("gsap/TextPlugin").then(({ TextPlugin }) => {
+        gsap.registerPlugin(TextPlugin);
+
+        // Animation code
+        const designCodeText = document.getElementById("design-code-text");
+        const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1, yoyo: true });
+        timeline.to(designCodeText, {
+          speed: 20,
+          text: "Coding",
+          ease: "none",
+        });
+      });
+    });
+  });
+});
   // Intersection Observer to add the "visible" class when element enters viewport
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {

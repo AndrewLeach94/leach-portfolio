@@ -1,0 +1,58 @@
+// ------------- Blog Styling (Typescale 1.125) -------------
+
+.blog-content {
+	h1, h2, h3, h4, h5, h6, p {
+		margin-top: 1rem;
+	}
+
+    h1 {
+        font-size: 2.27rem;
+    }
+
+    h2 {
+        margin-top: 2.5rem;
+        font-size: 1.802rem;
+    }
+
+    h3 {
+        font-size: 1.602rem;
+    }
+
+    h4, h5, h6 {
+        font-size: 1.266rem;
+    }
+
+    p, li {
+        font-size: 1.266rem;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
+    }
+}
+
+@include mobileOnly {
+    .blog-content {
+        h1 {
+            font-size: 1.602rem;
+        }
+
+        h2 {
+            font-size: 1.424rem;
+        }
+
+        h3 {
+            font-size: 1.266rem;
+        }
+
+        h4, h5, h6 {
+            font-size: 1.125rem;
+        }
+
+        p, li {
+            font-size: 1.125rem;
+        }
+    }
+}

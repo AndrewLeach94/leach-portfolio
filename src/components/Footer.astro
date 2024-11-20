@@ -15,7 +15,7 @@ import { SITE_TITLE } from '../consts';
 		</div>
 		<div class="item">
 			<p>Email:</p>
-			<a href="mailto:andrew_leach@outlook.com">andrew_leach@outlook.com</a>
+			<a id="email">andrew@somewherecool.com</a>
 		</div>
 		<div class="item">
 			<p>Github:</p>
@@ -91,3 +91,12 @@ import { SITE_TITLE } from '../consts';
 		}
 	}
 </style>
+
+<script>
+    const email = "andrew_leach@outlook.com";
+    const emailLink = `<a href="mailto:${email}">${email}</a>`;
+	const emailElement = document.getElementById('email');
+	if (emailElement) {
+		emailElement.innerHTML = emailLink;
+	}
+</script>  

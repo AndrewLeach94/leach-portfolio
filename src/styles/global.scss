@@ -2,6 +2,7 @@
  @import "./components/case-study.scss";
  @import './buttons.scss';
  @import './typography.scss';
+ @import './blog-content.scss';
 
 :root {
 	--color-black: #231F20;
@@ -55,18 +56,24 @@ main {
 }
 
 dialog {
-	max-width: 50vw;
+	max-width: 60vw;
 	background-color: var(--color-white);
 	overflow-x: hidden;
 	scrollbar-width: thin;
 	&::backdrop {
-		background-color: rgba(0, 4, 23, 0.8);
+		background-color: rgba(0, 4, 23, 0.85);
 	}
 }
 
 @include xlarge {
 	dialog {
 		max-width: 40vw;
+	}
+}
+
+@include tabletOnly {
+	dialog {
+		max-width: 75vw;
 	}
 }
 
